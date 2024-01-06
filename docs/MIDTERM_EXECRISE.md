@@ -29,7 +29,22 @@
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)
 
 ## Plan
-* Phases (milestones), timeline, short description of what we'll do in each phase.
+* Phase 1: Dataset exploration
+   * Exploring the dataset and determine on which metrics we want to focus on
+* Phase 2: Preparing the work environment
+   * Create a source code repository
+   * Install all python modules on the local machine (Based on requirements.txt)
+   * Executing the current lightgbm notebook based on our dataset
+   * Executing the current Conv_AE notebook based on our dataset
+* Phase 3: Choose our algorithms to use
+   * Algorithm for generating time-series data based on our dataset (Synthetic data) - XXXX (Fill in what we've chosen)
+* Phase 4: Train our python modules based on our updated dataset:
+   * lightgbm
+   * Conv_AE
+* Phase 5: View our results
+   * Check if the accuracy & f1score of the model has been improved
+   * For each metric, check if the values of the metric, AFTER using the algorithms in phase 3 has been improved
+* Phase 6: Export the updated dataset to output CSV file to be reusable in the next phases
 
 ## Architecture
 * Data
