@@ -25,7 +25,13 @@
 * What are the qualitative objectives? (e.g. reduce user churn)
 * What is a quantifiable metric  (e.g. reduce the fraction of users with 4-week inactivity)
 * Quantify what improvement in the values of the metrics are useful for the customer scenario (e.g. reduce the  fraction of users with 4-week inactivity by 20%) 
-* What is the baseline (current) value of the metric? (e.g. current fraction of users with 4-week inactivity = 60%)
+* What is the baseline (current) value of the metric?
+  * Based on LightGBM module, we currently have:
+    * Accuracy of 0.9257 between the predicted anomaly and the actual one
+    * f1 score of 0.9067 between the predicted anomaly and the actual one
+  * Based on Conv_AE module, we currently have:
+    * Accuracy of 0.786 between the predicted anomaly and the actual one
+    * f1 score of 0.77 between the predicted anomaly and the actual one
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)
 
 ## Plan
