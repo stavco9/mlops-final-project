@@ -167,8 +167,6 @@ type_schema = {
 
 }
 
-
-
 profile = ProfileReport(
 
    df,
@@ -183,11 +181,8 @@ profile = ProfileReport(
 
 )
 
-
-
 profile.to_file("report_timeseries.html")
 ```
-
 
 * LGBM:
     * Tree based learning algorithms
@@ -222,28 +217,20 @@ profile.to_file("report_timeseries.html")
     plt.legend(loc='best')
 ```
 
-
-
-Need to improve the accuracy and the f1score
-
-(f1 score is like accuracy but balancing precision and recall on the positive class) - That’s the purpose of the final project
-
-
+* Need to improve the accuracy and the f1score
+    * (f1 score is like accuracy but balancing precision and recall on the positive class) - That’s the purpose of the final project
 
 * FreaAI - Use mean squared error for linear regression between the predicted vector and the actual one. Detects the drift
 * SD Generation: Improve performance of a synthetic data. This is in the second priority because first we need to ensure the rate is improving
 
 * Steps:
-
-
-
-1. Check what metrics we want to improve
-    1. Recude the square error. 	E.g. Frea AI
-    2. Decreasing false negative values
-    3. Changing the loss function we train on to reduce the square error
-2. Analyse the data before training
-    4. Detecting problematic slices and improve them
-    5. FreaAI -> Need to check the complexability
+    1. Check what metrics we want to improve
+        1. Recude the square error. 	E.g. Frea AI
+        2. Decreasing false negative values
+        3. Changing the loss function we train on to reduce the square error
+    2. Analyse the data before training
+        1. Detecting problematic slices and improve them
+        2. FreaAI -> Need to check the complexability
 
 * Business background:
     * False negative values of anomalies (Leakages of the pipeline) costs a lot of money
