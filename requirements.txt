@@ -1,0 +1,9 @@
+jupyterlab
+notebook
+numpy
+pandas
+matplotlib
+seaborn
+lightgbm
+sklearn
+tensorflow
