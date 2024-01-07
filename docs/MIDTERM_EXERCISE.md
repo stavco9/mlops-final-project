@@ -31,8 +31,12 @@
 	
 ## Metrics
 * What are the qualitative objectives? (e.g. reduce user churn)
+  The qualitative objective is improving ability of early detection of network issues, with emphasis on proven balanced ability to detect all kinds of them.  
 * What is a quantifiable metric  (e.g. reduce the fraction of users with 4-week inactivity)
-* Quantify what improvement in the values of the metrics are useful for the customer scenario (e.g. reduce the  fraction of users with 4-week inactivity by 20%) 
+  The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.  
+* Quantify what improvement in the values of the metrics are useful for the customer scenario (e.g. reduce the  fraction of users with 4-week inactivity by 20%)  
+  	* Reduction of average False Negative Rate - by 3%  
+	* Reduction of False Negative Rate on a data slice with poorest performance - by 10% 
 * What is the baseline (current) value of the metric?
   * Based on LightGBM module, we currently have:
     * Accuracy of 0.9257 between the predicted anomaly and the actual one
