@@ -65,6 +65,15 @@
 * Phase 6: Export the updated dataset to output CSV file to be reusable in the next phases
 
 ## Architecture
+
+Training Data are collected from a water circulation system located in the Skolkovo Institute of Science and Technology (Skoltech). Through an OPC UA communication protocol, data are transferred from the Testbed monitoring system to a MySQL database and then processed to a CSV file. The training data consist of a set of those files obtained from various experimentations (34) describing 7 types of anomalies
+
+Each CSV files contains , 9 times series features representing the state of the system at a given time. Additionally each raw data defining the state is labelled as anomaly or not.
+
+
+In production, raw data representing the state of the system, will be collected through the same OPC UA protocol, processed and then pass through the binary classification model (as a stream) to detect anomalies at a given time point.
+The costumer could decide to check the system base on the model results, either at the time the model detect an anomaly state, or wait for the following stream data point to confirm the previous model output. We expect the costumer to miss less anomalies, by using our model, as we mentioned above.
+
 * Data
   * What data do we expect? Raw data in the customer data sources (e.g. on-prem files, SQL, on-prem Hadoop etc.)
 * Data movement from on-prem to Azure using ADF or other data movement tools (Azcopy, EventHub etc.) to move either
