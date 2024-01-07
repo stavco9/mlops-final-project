@@ -2,21 +2,15 @@
 
 ## Business background
 
-* Who is the client, what business domain the client is in.
-  
-	The project deals with detecting anomalies in a water circulation system.
-
+* Who is the client, what business domain the client is in.  
+	The project deals with detecting anomalies in a water circulation system.  
 	Thus, we assume that:
 	* the business domain is water utilities industry;
  	* the client is a water utility company supplying water to households and businesses in an urban area. 	
-* What business problems are we trying to address?
-  
-  	As a water utility company, our primary business objective is uninterrupted supply of high-quality water to customers while cost-optimal maintenance of water network infrastructure.
-  
-	Water infrastructure maintenance costs is a major operational expense and are in a big part defined by level of capability of early detection of signs of infrastructure issues.
-
-	Missed anomaly in water circulation have potential to result in water supply failure and considerable expenses in urgent fixing of the problem and of the associated damage and other. At the same time, proactive check of potential issues is relatively cheap.
-
+* What business problems are we trying to address?  
+  	As a water utility company, our primary business objective is uninterrupted supply of high-quality water to customers while cost-optimal maintenance of water network infrastructure.  
+	Water infrastructure maintenance costs is a major operational expense and are in a big part defined by level of capability of early detection of signs of infrastructure issues.  
+	Missed anomaly in water circulation have potential to result in water supply failure and considerable expenses in urgent fixing of the problem and of the associated damage and other. At the same time, proactive check of potential issues is relatively cheap.  
 	Thus, the client's major business problem is staying over-sensitive to all variety of water supply anomalies, in a strive not to miss any kind of them.
 
 ## Scope
