@@ -54,15 +54,28 @@
    * Install all python modules on the local machine (Based on requirements.txt)
    * Executing the current lightgbm notebook based on our dataset
    * Executing the current Conv_AE notebook based on our dataset
-* Phase 3: Choose our algorithms to use
-   * Algorithm for generating time-series data based on our dataset (Synthetic data) - XXXX (Fill in what we've chosen)
-* Phase 4: Train our python modules based on our updated dataset:
+* Phase 3: Split our dataset to three slices
+  * train
+  * test
+  * validate 
+* Phase 3: Train our python modules based on the train slice of our source (input) dataset:
    * lightgbm
    * Conv_AE
-* Phase 5: View our results
-   * Check if the accuracy & f1score of the model has been improved
-   * For each metric, check if the values of the metric, AFTER using the algorithms in phase 3 has been improved
+* Phase 4: Choose our algorithms to use in order to achieve the following:
+   * Algorithm for generating time-series data based on our dataset (Synthetic data). Based on comparing the validate set vs the trained model 
+     * Available options are: Time GAN, Deep Echo
+   * Algorithm for finding a problematic slices of dataset over the time series (Many false negatives) and tune them. Based on comparing the validate set vs the trained model:
+     * Available options are: XXXX
+* Phase 5: Train our python modules based on our updated dataset which is a result of the execution of our algorithms:
+   * lightgbm
+   * Conv_AE
+* Phase 5: View our results by comparing the test set vs the trained model
+   * Check if the following model aspects have been improved by the target improvement we've defined ourselves:
+     * false negative rate
+     * anomaly
+     * f1 score 
 * Phase 6: Export the updated dataset to output CSV file to be reusable in the next phases
+* Phase 7: Re-run our pipelines with the new generated output
 
 ## Architecture
 
