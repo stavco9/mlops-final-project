@@ -35,7 +35,7 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 
 ## Metrics
 * What are the qualitative objectives? (e.g. reduce user churn)  
-  The qualitative objective is improving ability of early detection of network issues, with emphasis on proven balanced ability to detect all kinds of them.  
+  The qualitative objective is to enhance the early detection capabilities of water infrastructure issues, with a specific focus on establishing a proven and balanced ability to detect all kinds of anomalies.  
 * What is a quantifiable metric  (e.g. reduce the fraction of users with 4-week inactivity)  
   The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.  
 * Quantify what improvement in the values of the metrics are useful for the customer scenario (e.g. reduce the  fraction of users with 4-week inactivity by 20%)   
@@ -49,6 +49,7 @@ Upon activation, the application seamlessly processes incoming data, and alertin
     * Accuracy of 0.786 between the predicted anomaly and the actual one
     * f1 score of 0.77 between the predicted anomaly and the actual one
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)
+  Comparison of False Negative Rates after implementation to baselines' False Negative Rates over the test set.
 
 ## Plan
 * Phase 1: Dataset exploration
