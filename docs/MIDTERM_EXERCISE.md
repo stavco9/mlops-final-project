@@ -44,11 +44,11 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 	* Reduction of False Negative Rate on a data slice with poorest performance - by 10% 
 * What is the baseline (current) value of the metric?
   * Based on LightGBM module, we currently have:
-    * Accuracy of 0.925704989154013 between the predicted anomaly and the actual one
-    * Avarage count of 137 false negative anomaly values which are 0.1706102117061021 of total
+    * Accuracy rate of 92% between the predicted anomaly and the actual one
+    * False negative rate of 17% between the predicted anomaly and the actual one
   * Based on Conv_AE module, we currently have:
-    * Accuracy of 0.8255158973811367 between the predicted anomaly and the actual one
-    * Count of 137 false negative anomaly values which are 0.35374971678876216 of total
+    * Accuracy rate of 83% between the predicted anomaly and the actual one
+    * False negative rate of 35% between the predicted anomaly and the actual one
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)  
   Comparison of False Negative Rates after implementation to baselines' False Negative Rates over the test set.
 
