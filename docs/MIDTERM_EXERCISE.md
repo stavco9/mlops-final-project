@@ -123,9 +123,10 @@ Dataset features. Source: SKAB report
 <br><br>
 
 <div style="text-align: center;">
-<img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8">
-</div>
+<img width="365" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/cacba0d4-044f-4e62-bb56-4d1727f6c652">
 <br>
 Types of anomalies. Source: SKAB report
+</div>
+
 
 
