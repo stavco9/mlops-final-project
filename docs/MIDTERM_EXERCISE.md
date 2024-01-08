@@ -3,15 +3,16 @@
 ## Business background
 
 * Who is the client, what business domain the client is in.  
-	The project deals with detecting anomalies in a water circulation system.  
-	Therefore, we assume that:
+	* The project deals with detecting anomalies in a water circulation system.  
+		* Therefore, we assume that:
 	* the client's business domain is water utilities industry;
- 	* the client is water utility company that provides water to households and businesses in an urban area. 	
-* What business problems are we trying to address?  
-  	As a water utility company, our client's primary business objective is to ensure uninterrupted supply of high-quality water to customers while optimizing the cost-effective maintenance of the water network infrastructure.  
-	Infrastructure maintenance costs are the major operational expense and are in a big part defined by the effectiveness of early detection of signs of infrastructure issues.  
-	Missed anomalies in water circulation have potential to result in water supply failure and substantial expenses in urgent fixing of the problem, repair of the associated damage and more. In contrast, proactive check of potential issues is relatively inexpensive.  
-	Hence, the client's major business challenge is to develop high level of sensitivity to all variety of water supply anomalies, aiming not to overlook any type of issue.
+ 		* the client is water utility company that provides water to households and businesses in an urban area. 	
+* What business problems are we trying to address?
+	* As a water utility company, our client's primary business objective is to ensure uninterrupted supply of high-quality water to customers while optimizing the cost-effective maintenance of the water network infrastructure.  
+	* Infrastructure maintenance costs are the major operational expense and are in a big part defined by the effectiveness of early detection of signs of infrastructure issues.  
+	* Missed anomalies in water circulation have potential to result in water supply failure and substantial expenses in urgent fixing of the problem, repair of the associated damage and more
+ 	* In contrast, proactive check of potential issues is relatively inexpensive.  
+	* Hence, the client's major business challenge is to develop high level of sensitivity to all variety of water supply anomalies, aiming not to overlook any type of issue.
 
 ## Scope
 
