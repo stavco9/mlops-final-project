@@ -82,9 +82,9 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * Phase 6: Export the updated dataset to output CSV file to be reusable in the next phases
 * Phase 7: Re-run our pipelines with the new generated output
 
-### Architecture
+## Architecture
 
-# 1- Training phase
+### 1- Training phase
 The client has furnished a collection of datasets aimed at training a model aligned with the business requirements. This compilation comprises a series of CSV files, totaling 34, derived from diverse experimental sources, each delineating 7 distinct types of anomalies (refer to annexes for details). Leveraging this data, we intend to construct a training sample conducive to the development of two models, with a focus on enhancing pertinent metrics. Ultimately, the most optimal model will be deployed into production. The subsequent graph delineates the various stages of the training phase.
 
 <div style="text-align: center;">
