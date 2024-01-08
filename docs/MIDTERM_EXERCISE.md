@@ -116,10 +116,11 @@ Raw data capturing the system's state will be systematically collected through p
 
 ## Annexes 
 <div style="text-align: center;">
-<img width="216" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/49e3c5b7-e3c7-4ba2-90eb-69032069cd84">
-</div>
+<img width="318" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/90dba94d-d5d1-48db-9599-047b2a35e30e">
 <br>
-Dataset features. Source: SKAB report <br><br>
+Dataset features. Source: SKAB report 
+</div>
+<br><br>
 
 <div style="text-align: center;">
 <img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8">
