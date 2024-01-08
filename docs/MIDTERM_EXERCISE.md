@@ -88,7 +88,7 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 The client has furnished a collection of datasets aimed at training a model aligned with the business requirements. This compilation comprises a series of CSV files, totaling 34, derived from diverse experimental sources, each delineating 7 distinct types of anomalies (refer to annexes for details). Leveraging this data, we intend to construct a training sample conducive to the development of two models, with a focus on enhancing pertinent metrics. Ultimately, the most optimal model will be deployed into production. The subsequent graph delineates the various stages of the training phase.
 
 <div style="text-align: center;">
-<img width="468" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/b5191acb-8fe6-464e-97b2-6a3a5fcf082b">
+<img width="927" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/f7a796ab-8642-4471-b10a-f62cceaf43a2">
 </div>
 
  
