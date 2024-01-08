@@ -26,12 +26,12 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 
 ## Personnel
 * Project Developers:
-* 
-Kiliemah, Stav Cohen, Natalia Meergus, Nitay Cohen
+  
+	Kiliemah, Stav Cohen, Natalia Meergus, Nitay Cohen
 
 * Project supervisor:
 
-Dr Ishai Rosenberg
+	Dr Ishai Rosenberg
 
 ## Metrics
 * What are the qualitative objectives? (e.g. reduce user churn)  
