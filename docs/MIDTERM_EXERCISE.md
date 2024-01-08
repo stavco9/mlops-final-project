@@ -48,6 +48,7 @@ Upon activation, the application seamlessly processes incoming data, and alertin
   * Based on Conv_AE module, we currently have:
     * Accuracy of 0.786 between the predicted anomaly and the actual one
     * f1 score of 0.77 between the predicted anomaly and the actual one
+    * Count of 137 false negative anomaly values which are 0.1706102117061021 of total
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)  
   Comparison of False Negative Rates after implementation to baselines' False Negative Rates over the test set.
 
