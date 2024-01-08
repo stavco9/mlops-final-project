@@ -97,9 +97,9 @@ In addition, the training data will be meticulously balanced. This entails achie
 
 # 2- In production
 Raw data capturing the system's state will be systematically collected through periodic updates in a CSV file. Subsequently, this data will undergo processing before being streamed through the binary classification model to identify anomalies within a specified timeframe. The customer retains the option to inspect the system based on the model's output. We expect that, the utilization of our model will result in a reduced occurrence of missed anomalies, as previously highlighted.
-
+<br>
 <img width="468" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/7150909e-0dde-4c16-bbdf-b150b93bea55">
-
+<br>
 
 ## Communication
 
@@ -111,10 +111,10 @@ Raw data capturing the system's state will be systematically collected through p
 	* Customer : Dr Ishai Rosenberg
 
 ## Annexes 
-<img width="216" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/49e3c5b7-e3c7-4ba2-90eb-69032069cd84">
+<img width="216" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/49e3c5b7-e3c7-4ba2-90eb-69032069cd84"> <br>
 Dataset features. Source: SKAB report <br><br>
 
-<img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8">
+<img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8"> <br>
 Types of anomalies. Source: SKAB report
 
 
