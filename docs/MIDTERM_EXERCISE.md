@@ -112,7 +112,7 @@ Raw data capturing the system's state will be systematically collected through p
 
 ## Annexes 
 <img width="216" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/49e3c5b7-e3c7-4ba2-90eb-69032069cd84">
-Dataset features. Source: SKAB report
+Dataset features. Source: SKAB report <br><br>
 
 <img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8">
 Types of anomalies. Source: SKAB report
