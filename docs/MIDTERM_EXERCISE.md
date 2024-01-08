@@ -84,31 +84,30 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 
 ## Architecture
 
-Training Data are collected from a water circulation system located in the Skolkovo Institute of Science and Technology (Skoltech). Through an OPC UA communication protocol, data are transferred from the Testbed monitoring system to a MySQL database and then processed to a CSV file. The training data consist of a set of those files obtained from various experimentations (34) describing 7 types of anomalies
+# 1- Training phase
+The client has furnished a collection of datasets aimed at training a model aligned with the business requirements. This compilation comprises a series of CSV files, totaling 34, derived from diverse experimental sources, each delineating 7 distinct types of anomalies (refer to annexes for details). Leveraging this data, we intend to construct a training sample conducive to the development of two models, with a focus on enhancing pertinent metrics. Ultimately, the most optimal model will be deployed into production. The subsequent graph delineates the various stages of the training phase.
+<img width="468" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/b5191acb-8fe6-464e-97b2-6a3a5fcf082b">
 
-Each CSV files contains , 9 times series features representing the state of the system at a given time. Additionally each raw data defining the state is labelled as anomaly or not.
+ 
 
+Each dataset encompasses 9 time series features, each reflecting the system's state at a specific moment. Moreover, each raw data point, signifying the system state, is categorized as either an anomaly or not (refer to annexes for specifics).
+In addition, the training data will be meticulously balanced. This entails achieving equilibrium among different anomaly types and maintaining a proportional balance between normal states and the overall anomaly states.
 
-In production, raw data representing the state of the system, will be collected through the same OPC UA protocol, processed and then pass through the binary classification model (as a stream) to detect anomalies at a given time point.
-The costumer could decide to check the system base on the model results, either at the time the model detect an anomaly state, or wait for the following stream data point to confirm the previous model output. We expect the costumer to miss less anomalies, by using our model, as we mentioned above.
-
-* Data
-  * What data do we expect? Raw data in the customer data sources (e.g. on-prem files, SQL, on-prem Hadoop etc.)
-* Data movement from on-prem to Azure using ADF or other data movement tools (Azcopy, EventHub etc.) to move either
-  * all the data, 
-  * after some pre-aggregation on-prem,
-  * Sampled data enough for modeling 
-
-* What tools and data storage/analytics resources will be used in the solution e.g.,
-  * ASA for stream aggregation
-  * HDI/Hive/R/Python for feature construction, aggregation and sampling
-  * AzureML for modeling and web service operationalization
-* How will the score or operationalized web service(s) (RRS and/or BES) be consumed in the business workflow of the customer? If applicable, write down pseudo code for the APIs of the web service calls.
-  * How will the customer use the model results to make decisions
-  * Data movement pipeline in production
-  * Make a 1 slide diagram showing the end to end data flow and decision architecture
-    * If there is a substantial change in the customer's business workflow, make a before/after diagram showing the data flow.
+# 2- In production
+Raw data capturing the system's state will be systematically collected through periodic updates in a CSV file. Subsequently, this data will undergo processing before being streamed through the binary classification model to identify anomalies within a specified timeframe. The customer retains the option to inspect the system based on the model's output. We expect that, the utilization of our model will result in a reduced occurrence of missed anomalies, as previously highlighted.
 
 ## Communication
-* How will we keep in touch? Weekly meetings?
-* Who are the contact persons on both sides?
+Meetings :
+
+Weekly meetings to check the step by step improvement techniques implementation
+Final meeting to discuss the added value of the improvement
+
+ :
+- Team :
+- Customer : 
+* Meetings :
+	* Weekly meetings to check the step by step improvement techniques implementation
+ 	* Final meeting to discuss the added value of the improvement 
+* Contact person :
+	* Team :
+	* Customer :
