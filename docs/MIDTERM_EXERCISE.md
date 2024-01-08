@@ -64,13 +64,13 @@ Upon activation, the application seamlessly processes incoming data, and alertin
   * train
   * test
   * validate 
-* Phase 3: Train our python modules based on the train slice of our source (input) dataset:
+* Phase 3: Train our python modules based on the train slice of our source (input) dataset and validate it with our validate slice:
    * lightgbm
    * Conv_AE
 * Phase 4: Choose our algorithms to use in order to achieve the following:
-   * Algorithm for generating time-series data based on our dataset (Synthetic data). Based on comparing the validate set vs the trained model 
+   * Algorithm for generating time-series data based on our dataset (Synthetic data). Based on comparing the test set vs the trained model 
      * Available options are: Time GAN, Deep Echo
-   * Algorithm for finding a problematic slices of dataset over the time series (Many false negatives) and tune them. Based on comparing the validate set vs the trained model:
+   * Algorithm for finding a problematic slices of dataset over the time series (Many false negatives) and tune them. Based on comparing the test set vs the trained model:
      * Available options are: XXXX
 * Phase 5: Train our python modules based on our updated dataset which is a result of the execution of our algorithms:
    * lightgbm
