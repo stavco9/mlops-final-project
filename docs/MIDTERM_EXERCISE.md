@@ -14,21 +14,22 @@
 	Thus, the client's major business problem is staying over-sensitive to all variety of water supply anomalies, in a strive not to miss any kind of them.
 
 ## Scope
-* What data science solutions are we trying to build?
-* What will we do?
-* How is it going to be consumed by the customer?
+
+To address the business problem at hand, we aim to employ data science tools for detecting anomalies in the water circulation system. Our primary focus is on minimizing undetected issues within the system.
+
+To tackle this challenge, we will use two machine learning models. The first model is based on a convolutional autoencoder, while the second model is based on decision trees. Our objective is to minimize the false negative rate in our system. Failure to identify an anomaly can result in significant financial losses for the client, whereas dispatching a technician is a comparatively cheap solution.
+
+During the model training process, we will identify slices in the data where the models exhibit suboptimal performance. To improve the perfomance in these specific areas, we will generate additional synthetic training samples with similar distribution as the problematic segments. This iterative training approach aims to improve model performance on challenging data slices.
+
+Our tool is each to use and requieres continuous data collection from the water pump, with the user uploading this data to the server.
+Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.
 
 ## Personnel
-* Who are on this project:
-	* Microsoft:
-		* Project lead
-		* PM
-		* Data scientist(s)
-		* Account manager
-	* Client:
-		* Data administrator
-		* Business contact
-	
+* Project Developers:
+Kiliemah, Stav Cohen, Natalia Meergus, Nitay Cohen
+* Project supervisor: 
+Dr Ishai Rosenberg.
+
 ## Metrics
 * What are the qualitative objectives? (e.g. reduce user churn)  
   The qualitative objective is improving ability of early detection of network issues, with emphasis on proven balanced ability to detect all kinds of them.  
