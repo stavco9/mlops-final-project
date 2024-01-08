@@ -82,12 +82,14 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * Phase 6: Export the updated dataset to output CSV file to be reusable in the next phases
 * Phase 7: Re-run our pipelines with the new generated output
 
-## Architecture
+### Architecture
 
 # 1- Training phase
 The client has furnished a collection of datasets aimed at training a model aligned with the business requirements. This compilation comprises a series of CSV files, totaling 34, derived from diverse experimental sources, each delineating 7 distinct types of anomalies (refer to annexes for details). Leveraging this data, we intend to construct a training sample conducive to the development of two models, with a focus on enhancing pertinent metrics. Ultimately, the most optimal model will be deployed into production. The subsequent graph delineates the various stages of the training phase.
 
+<div style="text-align: center;">
 <img width="468" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/b5191acb-8fe6-464e-97b2-6a3a5fcf082b">
+</div>
 
  
 
@@ -95,10 +97,12 @@ Each dataset encompasses 9 time series features, each reflecting the system's st
 In addition, the training data will be meticulously balanced. This entails achieving equilibrium among different anomaly types and maintaining a proportional balance between normal states and the overall anomaly states.
 
 
-# 2- In production
+### 2- In production
 Raw data capturing the system's state will be systematically collected through periodic updates in a CSV file. Subsequently, this data will undergo processing before being streamed through the binary classification model to identify anomalies within a specified timeframe. The customer retains the option to inspect the system based on the model's output. We expect that, the utilization of our model will result in a reduced occurrence of missed anomalies, as previously highlighted.
 <br>
+<div style="text-align: center;">
 <img width="468" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/7150909e-0dde-4c16-bbdf-b150b93bea55">
+</div>
 <br>
 
 ## Communication
@@ -111,10 +115,16 @@ Raw data capturing the system's state will be systematically collected through p
 	* Customer : Dr Ishai Rosenberg
 
 ## Annexes 
-<img width="216" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/49e3c5b7-e3c7-4ba2-90eb-69032069cd84"> <br>
+<div style="text-align: center;">
+<img width="216" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/49e3c5b7-e3c7-4ba2-90eb-69032069cd84">
+</div>
+<br>
 Dataset features. Source: SKAB report <br><br>
 
-<img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8"> <br>
+<div style="text-align: center;">
+<img width="248" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/24db2cfe-9ec0-4079-8477-14a6a1ba43d8">
+</div>
+<br>
 Types of anomalies. Source: SKAB report
 
 
