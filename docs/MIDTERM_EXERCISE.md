@@ -101,7 +101,7 @@ In addition, the training data will be meticulously balanced. This entails achie
 Raw data capturing the system's state will be systematically collected through periodic updates in a CSV file. Subsequently, this data will undergo processing before being streamed through the binary classification model to identify anomalies within a specified timeframe. The customer retains the option to inspect the system based on the model's output. We expect that, the utilization of our model will result in a reduced occurrence of missed anomalies, as previously highlighted.
 <br>
 <div style="text-align: center;">
-<img width="468" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/7150909e-0dde-4c16-bbdf-b150b93bea55">
+<img width="886" alt="image" src="https://github.com/stavco9/mlops-final-project/assets/72156432/08328fee-f1e9-4566-a3e2-e7a48265b500">
 </div>
 <br>
 
