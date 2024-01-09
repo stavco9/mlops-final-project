@@ -2,17 +2,17 @@
 
 ## Business background
 
-* Who is the client, what business domain the client is in.  
-	* The project deals with detecting anomalies in a water circulation system.  
-		* Therefore, we assume that:
-	* the client's business domain is water utilities industry;
- 		* the client is water utility company that provides water to households and businesses in an urban area. 	
-* What business problems are we trying to address?
-	* As a water utility company, our client's primary business objective is to ensure uninterrupted supply of high-quality water to customers while optimizing the cost-effective maintenance of the water network infrastructure.  
-	* Infrastructure maintenance costs are the major operational expense and are in a big part defined by the effectiveness of early detection of signs of infrastructure issues.  
-	* Missed anomalies in water circulation have potential to result in water supply failure and substantial expenses in urgent fixing of the problem, repair of the associated damage and more
- 	* In contrast, proactive check of potential issues is relatively inexpensive.  
-	* Hence, the client's major business challenge is to develop high level of sensitivity to all variety of water supply anomalies, aiming not to overlook any type of issue.
+Our client is a player in the water utility sector. In this sector it is important to provide efficient and reliable water circulation. 
+The water utilities relies on a network of pumps to maintain a consistent and optimal water flow. These pumps are equipped with sensors capable of measuring multiple parameters, such as pressure, flow rate, and temperature, providing crucial insights into the state of the water distribution system.
+
+Our customer's goal is to ensure the uninterrupted and cost-effective delivery of clean water to consumers. This involves managing a network of pumps and monitoring various parameters to maintain operational efficiency, reduce energy consumption, and proactively address issues within the water circulation infrastructure.
+
+Infrastructure maintenance costs are the major operational expense and are in a big part defined by the effectiveness of early detection of signs of infrastructure issues.  
+
+Missed anomalies in water circulation have potential to result in water supply failure and substantial expenses in urgent fixing of the problem, repair of the associated damage and more
+ 
+In contrast, proactive check of potential issues is relatively inexpensive.  
+Hence, the client's major business challenge is to develop high level of sensitivity to all variety of water supply anomalies, aiming not to overlook any type of issue.
 
 ## Scope
 
@@ -35,14 +35,12 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 	Dr Ishai Rosenberg
 
 ## Metrics
-* What are the qualitative objectives? (e.g. reduce user churn)  
+* Qualitative objectives  
   The qualitative objective is to enhance the early detection capabilities of water infrastructure issues, with a specific focus on establishing a proven and balanced ability to detect all kinds of anomalies.  
-* What is a quantifiable metric  (e.g. reduce the fraction of users with 4-week inactivity)  
-  The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.  
-* Quantify what improvement in the values of the metrics are useful for the customer scenario (e.g. reduce the  fraction of users with 4-week inactivity by 20%)   
-  	* Reduction of average False Negative Rate (and increase the recall rate) - by 3%  
-	* Reduction of False Negative Rate on a data slice with poorest performance (and increase the recall rate) - by 10% 
-* What is the baseline (current) value of the metric?
+* Quantifiable metric  
+  The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.
+It is difficult to estimate the value of detecting undetected anomalies in the system, becuase we don't know the damage which can happen due to a fault in the system. We assume that a valuable improvments are reduction of average False Negative Rate (and increase the recall rate) by 3%, and reduction of False Negative Rate on a data slice with poorest performance (and increase the recall rate) by 10%. 
+* Metrics' basline
   * Based on LightGBM module, we currently have:
     * Accuracy rate of 92% between the predicted anomaly and the actual one
     * False negative rate of 17% between the predicted anomaly and the actual one
