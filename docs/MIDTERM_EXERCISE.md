@@ -40,15 +40,17 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * What is a quantifiable metric  (e.g. reduce the fraction of users with 4-week inactivity)  
   The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.  
 * Quantify what improvement in the values of the metrics are useful for the customer scenario (e.g. reduce the  fraction of users with 4-week inactivity by 20%)   
-  	* Reduction of average False Negative Rate - by 3%  
-	* Reduction of False Negative Rate on a data slice with poorest performance - by 10% 
+  	* Reduction of average False Negative Rate (and increase the recall rate) - by 3%  
+	* Reduction of False Negative Rate on a data slice with poorest performance (and increase the recall rate) - by 10% 
 * What is the baseline (current) value of the metric?
   * Based on LightGBM module, we currently have:
     * Accuracy rate of 92% between the predicted anomaly and the actual one
     * False negative rate of 17% between the predicted anomaly and the actual one
+    * Recall rate of 83% between the predicted anomaly and the actual one
   * Based on Conv_AE module, we currently have:
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
+    * Recall rate of 35% between the predicted anomaly and the actual one
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)  
   Comparison of False Negative Rates after implementation to baselines' False Negative Rates over the test set.
 
@@ -78,6 +80,7 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * Phase 5: View our results by comparing the test set vs the trained model
    * Check if the following model aspects have been improved by the target improvement we've defined ourselves:
      * false negative rate
+     * recall rate
      * accuracy rate
 * Phase 6: Export the updated dataset to output CSV file to be reusable in the next phases
 * Phase 7: Re-run our pipelines with the new generated output
