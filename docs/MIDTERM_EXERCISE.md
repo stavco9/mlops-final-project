@@ -36,12 +36,12 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 	Dr Ishai Rosenberg
 
 ## Metrics
-* Qualitative objectives  
+* **Qualitative objectives** 
   The qualitative objective is to enhance the early detection capabilities of water infrastructure issues, with a specific focus on establishing a proven and balanced ability to detect all kinds of anomalies.  
-* Quantifiable metric  
+* **Quantifiable metric**  
   The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.
 It is difficult to estimate the value of detecting undetected anomalies in the system, becuase we don't know the damage which can happen due to a fault in the system. We assume that a valuable improvments are reduction of average False Negative Rate (and increase the recall rate) by 3%, and reduction of False Negative Rate on a data slice with poorest performance (and increase the recall rate) by 10%. 
-* Metrics' basline
+* **Metrics' basline**
   * Based on LightGBM module, we currently have:
     * Accuracy rate of 92% between the predicted anomaly and the actual one
     * False negative rate of 17% between the predicted anomaly and the actual one
@@ -50,8 +50,8 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
     * Recall rate of 65% between the predicted anomaly and the actual one
-* How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)  
-  Comparison of False Negative Rates after implementation to baselines' False Negative Rates over the test set.
+* **Metrics measurment**  
+  Comparison of False Negative rates and recall after implementation to baselines' False Negative rates and recall over the test set.
 
 ## Plan
 * Phase 1: Dataset exploration
