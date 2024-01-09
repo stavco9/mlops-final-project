@@ -48,7 +48,7 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
   * Based on Conv_AE module, we currently have:
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
-    * Recall rate of 35% between the predicted anomaly and the actual one
+    * Recall rate of 65% between the predicted anomaly and the actual one
 * How will we measure the metric? (e.g. A/B test on a specified subset for a specified period; or comparison of performance after implementation to baseline)  
   Comparison of False Negative Rates after implementation to baselines' False Negative Rates over the test set.
 
