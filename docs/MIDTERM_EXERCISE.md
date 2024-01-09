@@ -78,7 +78,7 @@ Check if the following model aspects have been improved by the target improvemen
      * False negative rate
      * Recall rate
 * Phase 8: Export the trained model and create an application which wraps the model with simlpe user interface.
-* 
+
 ## Architecture
 
 ### 1- Training phase
