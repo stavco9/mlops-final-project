@@ -2,14 +2,15 @@
 
 ## Business background
 
-Our client is a player in the water utility sector. In this sector it is important to provide efficient and reliable water circulation. 
+Our client is a player in the water utility sector. 
+In this sector it is important to provide efficient and reliable water circulation. 
 The water utilities relies on a network of pumps to maintain a consistent and optimal water flow. These pumps are equipped with sensors capable of measuring multiple parameters, such as pressure, flow rate, and temperature, providing crucial insights into the state of the water distribution system.
 
 Our customer's goal is to ensure the uninterrupted and cost-effective delivery of clean water to consumers. This involves managing a network of pumps and monitoring various parameters to maintain operational efficiency, reduce energy consumption, and proactively address issues within the water circulation infrastructure.
 
 Infrastructure maintenance costs are the major operational expense and are in a big part defined by the effectiveness of early detection of signs of infrastructure issues.  
 
-Missed anomalies in water circulation have potential to result in water supply failure and substantial expenses in urgent fixing of the problem, repair of the associated damage and more
+Missed anomalies in water circulation have potential to result in water supply failure and substantial expenses in urgent fixing of the problem, repair of the associated damage and more.
  
 In contrast, proactive check of potential issues is relatively inexpensive.  
 Hence, the client's major business challenge is to develop high level of sensitivity to all variety of water supply anomalies, aiming not to overlook any type of issue.
@@ -18,11 +19,11 @@ Hence, the client's major business challenge is to develop high level of sensiti
 
 To address the business problem at hand, we aim to employ data science tools for detecting anomalies in the water circulation system. Our primary focus is on minimizing undetected issues within the system.
 
-To tackle this challenge, we will use two machine learning models. The first model is based on a convolutional autoencoder, while the second model is based on decision trees. Our objective is to minimize the false negative rate in our system. Failure to identify an anomaly can result in significant financial losses for the client, whereas dispatching a technician is a comparatively cheap solution.
+To tackle this challenge, we will use two machine learning models. The first model is based on a convolutional autoencoder, while the second model is based on decision trees. Our objective is to minimize the false negative rate in our system. Failure to identify an anomaly can result in significant financial expanses for the client, whereas dispatching a technician is a comparatively inexpensive solution.
 
 During the model training process, we will identify slices in the data where the models exhibit suboptimal performance. To improve the perfomance in these specific areas, we will generate additional synthetic training samples with similar distribution as the problematic segments. This iterative training approach aims to improve model performance on challenging data slices.
 
-Our tool is each to use and requieres continuous data collection from the water pump, with the user uploading this data to the server.
+Our tool is easy to use and requieres continuous data collection from the water pump, with the customer uploading this data to the server.
 Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.
 
 ## Personnel
