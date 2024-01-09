@@ -65,19 +65,19 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
   * train
   * test
   * validate 
-* Phase 3: Train our python modules based on the train slice of our source (input) dataset and validate it with our validate slice:
+* Phase 4: Train our python modules based on the train slice of our source (input) dataset and validate it with our validate slice:
    * lightgbm
    * Conv_AE
-* Phase 4: Implement an algorithm to find slices of dataset which the model perform badbly on. That means low recall rate.
-* Phase 5: Choose an algorithm for generating time-series data (Synthetic data) with similar distribution as the problematic slices. Possible packages are Time GAN and Deep Echo.
-* Phase 6: Use the extended data sets to train again and fine tune the models:
+* Phase 5: Implement an algorithm to find slices of dataset which the model perform badly on. That means low recall rate.
+* Phase 6: Choose an algorithm for generating time-series data (Synthetic data) with similar distribution as the problematic slices. Possible packages are Time GAN and Deep Echo.
+* Phase 7: Use the extended data sets to train again and fine tune the models:
    * lightgbm
    * Conv_AE
-* Phase 7: Show our results by comparing the perfomance on the test set with and without our method. We will apply same algorithm for detecting problematic slices so get customer will be aware in case that our model has sub optimal performance over some data.
+* Phase 8: Show our results by comparing the perfomance on the test set with and without our method. We will apply same algorithm for detecting problematic slices so get customer will be aware in case that our model has sub optimal performance over some data.
 Check if the following model aspects have been improved by the target improvement we've defined ourselves:
      * False negative rate
      * Recall rate
-* Phase 8: Export the trained model and create an application which wraps the model with simlpe user interface.
+* Phase 9: Export the trained model and create an application which wraps the model with simlpe user interface.
 
 ## Architecture
 
