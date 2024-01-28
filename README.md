@@ -1,7 +1,9 @@
 ### MLOps final project based on SKAB dataset
 
-Run
+Prerequirements:
 ```
-python3 -m pip install -r requirements.txt
-jupyter notebook
+1. Install Anaconda / Miniconda in your machine
+2. Python 3.11.x installed
+3. Run the following command:
+    conda install --yes --file requirements.txt
 ```
