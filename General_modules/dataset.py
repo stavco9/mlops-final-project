@@ -11,7 +11,8 @@ class Dataset:
 
     def __init__(self, data_path):
         self.data_path = data_path
-        self.value1_data = self.load_data()  
+        self.value1_data = self.load_data()
+        self.list_of_df = self.load_data_df()
 
     def get_files(self):
         all_files = []
@@ -21,6 +22,14 @@ class Dataset:
         all_files.sort()
 
         return all_files
+    
+    def load_data_df(self):
+        all_files = self.get_files()
+        list_data_df = [pd.read_csv(file, 
+                                sep=';', 
+                                index_col='datetime', 
+                                parse_dates=True) for file in all_files if 'anomaly-free' not in file]
+        return list_data_df
 
     def load_data(self):
         all_files = self.get_files()
@@ -62,10 +71,10 @@ class Dataset:
 
         x_all_data=pd.concat([self.x_train,self.x_valid,self.x_test],ignore_index=False)
 
-        features=['Accelerometer1RMS','Accelerometer2RMS','Current','Pressure','Temperature','Thermocouple','Voltage','Volume Flow RateRMS']
+        self.features=['Accelerometer1RMS','Accelerometer2RMS','Current','Pressure','Temperature','Thermocouple','Voltage','Volume Flow RateRMS']
         mat=np.concatenate([self.x_train_win,self.x_valid_win,self.x_test_win],axis=0)
 
-        x_all_data_win=pd.DataFrame(mat,columns=features)
+        x_all_data_win=pd.DataFrame(mat,columns=self.features)
 
         for column in x_all_data.columns[:]:
             plt.figure(figsize=(13,8))
