@@ -1,9 +1,0 @@
-* data loading (with displaying & plotting)
-* data seperation (train / validate / test)
-* data smooting
-** Lightgbm train set based on features
-** Lightgbm training
-** ConvAE train set based on features
-** ConvAE training
-* Mlflow log model
-* Mlflow show results
