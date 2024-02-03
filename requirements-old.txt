@@ -1,8 +1,9 @@
-jupyter
-lightgbm
+jupyterlab
+notebook
 numpy
 pandas
 matplotlib
+seaborn
 scikit-learn
+lightgbm
 tensorflow
-mlflow
