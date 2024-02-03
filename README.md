@@ -10,3 +10,11 @@ Prerequirements:
      export MLFLOW_TRACKING_USERNAME=your_email@gmail.com
      export MLFLOW_TRACKING_PASSWORD=********
 ```
+Executing LightGBM:
+```
+python3 main.py --model lightgbm
+```
+Executing ConvAE:
+```
+python3 main.py --model convae
+```
