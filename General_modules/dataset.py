@@ -5,7 +5,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.preprocessing import StandardScaler
-from IPython.display import display, Markdown
+from IPython.display import display
 
 class Dataset:
 
