@@ -2,6 +2,8 @@ import mlflow
 import numpy as np
 import pandas as pd
 import tensorflow as tf
+from sklearn.preprocessing import StandardScaler
+from Conv_AE_modules.Conv_AE_main import Conv_AE_Main
 from Conv_AE_modules.Conv_AE import Conv_AE
 from mlflow.models import infer_signature
 
@@ -17,7 +19,7 @@ class MLflow:
             tracking_uri=mlflow_url,
         )
 
-    def run_experiment(self, experiment_name, model, model_name, train_x, \
+    def run_experiment(self, experiment_name, model, model_name, train_x, valid_x, \
                        test_acc=None, test_f1score=None, \
                        test_recallscore=None, test_cm=None, test_pred=None, \
                         params=None, features=None):
@@ -42,16 +44,7 @@ class MLflow:
             # Set a tag that we can use to remind ourselves what this run was for
             mlflow.set_tag("Training Info", "Basic LR model for iris data")
             
-            # Infer the model signature
-            #if type(model) is Conv_AE:
-            #    print(train_x)
-            #    train_x_predicted = pd.DataFrame(model.predict(train_x.to_numpy()), columns=features)
-            #    print(train_x_predicted)
-            #    signature = infer_signature(train_x, train_x_predicted)
-            if type(model) is Conv_AE:
-                signature = None
-            else:
-                signature = infer_signature(train_x, model.predict(train_x))
+            signature = infer_signature(train_x, model.predict(valid_x))
 
             # Log the model
             self.model_info = mlflow.sklearn.log_model(
@@ -63,10 +56,10 @@ class MLflow:
                 await_registration_for=60
             )
             
-    def show_experiment_results(self, test_x, test_y, features, train_y = None, start_index=0, end_index=-1):
+    def show_experiment_results(self, test_x, test_y, features, start_index=0, end_index=-1):
         loaded_model = mlflow.pyfunc.load_model(self.model_info.model_uri)
 
-        predictions = np.where(loaded_model.predict(test_x) > 0.5, 1, 0) if not train_y else train_y
+        predictions = np.where(loaded_model.predict(test_x) > 0.5, 1, 0)
 
         # Convert X_test validation feature data to a Pandas DataFrame
         result = pd.DataFrame(test_x, columns=features)

@@ -7,10 +7,12 @@ import numpy as np
 class Conv_AE_Main:
     def __init__(self, dataset: Dataset):
         self.model = Conv_AE()
-        self.list_of_df = dataset.list_of_df
+        self.list_of_df = [dataset.value1_data]
         self.features = list(dataset.list_of_df[0])
         self.features.remove('anomaly')
         self.features.remove('changepoint')
+        self.N_STEPS = 60
+        self.Q = 0.999 # quantile for upper control limit (UCL) selection
         print(self.features)
 
     @staticmethod
@@ -40,70 +42,106 @@ class Conv_AE_Main:
 
         return((TP / y_len), (FP / y_len), (TN / y_len), (FN / y_len))
 
-    def train_and_test(self):
-        # hyperparameters selection
-        N_STEPS = 60
-        Q = 0.999 # quantile for upper control limit (UCL) selection
-        self.predicted_outlier, self.predicted_cp = [], []
-        self.X_train_concat = []
+    def train(self):
+        predicted_outlier, predicted_cp = [], []
+
         for df in self.list_of_df:
-            X_train = df[:400].drop(['anomaly', 'changepoint'], axis=1)
-            
+            train_pre_size = df.shape[0]
+            self.train_size=int(train_pre_size*0.7)
+            valid_pre_size=train_pre_size-self.train_size
+            self.valid_size=int(valid_pre_size*0.66)
+
+            #X_train = df[:400].drop(['anomaly', 'changepoint'], axis=1)
+            self.X_train_df = df[:self.train_size].drop(['anomaly', 'changepoint'], axis=1)
+            self.X_valid_df = df[self.train_size:self.train_size+self.valid_size].drop(['anomaly', 'changepoint'], axis=1)
+            self.X_test_df = df[self.train_size+self.valid_size:].drop(['anomaly', 'changepoint'], axis=1)
+
             # scaler init and fitting
             StSc = StandardScaler()
-            StSc.fit(X_train)
-            
+            StSc.fit(df.drop(['anomaly', 'changepoint'], axis=1))
+
             # convert into input/output
-            X = self.create_sequences(StSc.transform(X_train), N_STEPS)
-            
+            self.X_train_seq = self.create_sequences(StSc.transform(self.X_train_df), self.N_STEPS)
+            self.X_test_seq = self.create_sequences(StSc.transform(self.X_test_df), self.N_STEPS)
+            self.X_valid_seq = self.create_sequences(StSc.transform(self.X_valid_df), self.N_STEPS)
+
+
             # model fitting
-            self.model.fit(X)
-            
+            self.model.fit(self.X_train_seq)
+
             # results predicting
-            residuals = pd.Series(np.sum(np.mean(np.abs(X - self.model.predict(X)), axis=1), axis=1))
-            UCL = residuals.quantile(Q) * 4/3
-            
+            residuals = pd.Series(np.sum(np.mean(np.abs(self.X_valid_seq - self.model.predict(self.X_valid_seq)), axis=1), axis=1))
+            UCL = residuals.quantile(self.Q) * 4/8   # 4/3
+
             # results predicting
-            X = self.create_sequences(StSc.transform(df.drop(['anomaly','changepoint'], axis=1)), N_STEPS)
-            cnn_residuals = pd.Series(np.sum(np.mean(np.abs(X - self.model.predict(X)), axis=1), axis=1))
-            
+            #X = create_sequences(StSc.transform(df.drop(['anomaly','changepoint'], axis=1)), N_STEPS)
+            cnn_residuals = pd.Series(np.sum(np.mean(np.abs(self.X_valid_seq - self.model.predict(self.X_valid_seq)), axis=1), axis=1))
+
             # data i is an anomaly if samples [(i - timesteps + 1) to (i)] are anomalies
             anomalous_data = cnn_residuals > UCL
             anomalous_data_indices = []
-            for data_idx in range(N_STEPS - 1, len(X) - N_STEPS + 1):
-                if np.all(anomalous_data[data_idx - N_STEPS + 1 : data_idx]):
+            for data_idx in range(self.N_STEPS - 1, len(self.X_valid_seq) - self.N_STEPS + 1):
+                if np.all(anomalous_data[data_idx - self.N_STEPS + 1 : data_idx]):
                     anomalous_data_indices.append(data_idx)
-            
-            prediction = pd.Series(data=0, index=df.index)
+
+            prediction = pd.Series(data=0, index=self.X_valid_df.index)
             prediction.iloc[anomalous_data_indices] = 1
-            
+
             # predicted outliers saving
-            self.predicted_outlier.append(prediction)
-            
+            predicted_outlier.append(prediction)
+
             # predicted CPs saving
             prediction_cp = abs(prediction.diff())
             prediction_cp[0] = prediction[0]
-            self.predicted_cp.append(prediction_cp)
-            self.X_train_concat.append(X_train)
+            predicted_cp.append(prediction_cp)
 
-    def test_results(self):
-        if not hasattr(self, 'predicted_cp') or not hasattr(self, 'predicted_outlier'):
-            self.train_and_test()
+    def test(self):
+        N_STEPS = 60
+        Q = 0.999 # quantile for upper control limit (UCL) selection
+
+        # results predicting
+        predicted_outlier = []
+        residuals = pd.Series(np.sum(np.mean(np.abs(self.X_test_seq - self.model.predict(self.X_test_seq)), axis=1), axis=1))
+        UCL = residuals.quantile(Q) * 4/8   # 4/3
+
+        # results predicting
+        #X = create_sequences(StSc.transform(df.drop(['anomaly','changepoint'], axis=1)), N_STEPS)
+        cnn_residuals = pd.Series(np.sum(np.mean(np.abs(self.X_test_seq - self.model.predict(self.X_test_seq)), axis=1), axis=1))
+
+        # data i is an anomaly if samples [(i - timesteps + 1) to (i)] are anomalies
+        anomalous_data = cnn_residuals > UCL
+        anomalous_data_indices = []
+        for data_idx in range(self.N_STEPS - 1, len(self.X_test_seq) - self.N_STEPS + 1):
+            if np.all(anomalous_data[data_idx - self.N_STEPS + 1 : data_idx]):
+                anomalous_data_indices.append(data_idx)
+
+        prediction = pd.Series(data=0, index=self.X_test_df.index)
+        prediction.iloc[anomalous_data_indices] = 1
+
+        # predicted outliers saving
+        predicted_outlier.append(prediction)
 
         # true outlier indices selection
-        true_outlier = [df.anomaly for df in self.list_of_df]
+        true_outlier = [df[self.train_size+self.valid_size:].anomaly for df in self.list_of_df]
+
+        predicted_outlier[0].plot(figsize=(12,3), label='predictions', marker='o', markersize=5)
+        true_outlier[0].plot(marker='o', markersize=2)
+        #plt.legend();
+
         outlier_len = len(true_outlier)
-        X_train = np.concatenate([x.to_numpy() for x in self.X_train_concat])
-        X_test = np.concatenate([df.drop(['anomaly', 'changepoint'], axis=1).to_numpy() for df in self.list_of_df])
-        Y_train=np.concatenate([x.to_numpy() for x in self.predicted_outlier])
-        Y_test=np.concatenate([x.to_numpy() for x in true_outlier])
-        tp_rate, fp_rate, tn_rate, fn_rate = self.perf_measure(Y_test, Y_train, outlier_len)
+        true_outlier_np=np.concatenate([x.to_numpy() for x in true_outlier])
+        predicted_outlier_np=np.concatenate([x.to_numpy() for x in predicted_outlier])
+        tp_rate, fp_rate, tn_rate, fn_rate = self.perf_measure(true_outlier_np, predicted_outlier_np, outlier_len)
+
         test_recallscore = tp_rate/(fn_rate + tp_rate)
         test_accuracy = (tp_rate+tn_rate)/(tp_rate+fp_rate+fn_rate+tn_rate)
+
+        self.Y_test = true_outlier_np
+        self.Y_train = predicted_outlier_np
 
         print('test_fn_count:' + str(fn_rate))
         print('test_fn_rate:' + str(fn_rate/(fn_rate + tp_rate)))
         print('test_recall_rate:' + str(test_recallscore))
         print('accuracy_rate:' + str(test_accuracy))
 
-        return test_accuracy,test_recallscore,X_train,X_test,Y_train,Y_test
+        return test_accuracy,test_recallscore
