@@ -74,3 +74,5 @@ class MLflow:
         result["predicted_class"] = predictions
 
         print(result[start_index:end_index])
+
+        return result
