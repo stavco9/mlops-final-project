@@ -1,11 +1,7 @@
-import mlflow
+import MLflow.mlflow_module as mlflow
 import numpy as np
 import pandas as pd
-import tensorflow as tf
-from sklearn.preprocessing import StandardScaler
-from Conv_AE_modules.Conv_AE_main import Conv_AE_Main
-from Conv_AE_modules.Conv_AE import Conv_AE
-from mlflow.models import infer_signature
+from MLflow.mlflow_module.models import infer_signature
 
 class MLflow:
     #
@@ -22,7 +18,7 @@ class MLflow:
     def run_experiment(self, experiment_name, model, model_name, train_x, valid_x, \
                        test_acc=None, test_f1score=None, \
                        test_recallscore=None, test_cm=None, test_pred=None, \
-                        params=None, features=None):
+                        params=None):
         
         if not mlflow.get_experiment_by_name(experiment_name):
             mlflow.create_experiment(experiment_name)
@@ -56,13 +52,17 @@ class MLflow:
                 await_registration_for=60
             )
             
-    def show_experiment_results(self, test_x, test_y, features, start_index=0, end_index=-1):
+    def show_experiment_results(self, test_x, test_y, test_x_df=None, start_index=0, end_index=-1):
         loaded_model = mlflow.pyfunc.load_model(self.model_info.model_uri)
 
         predictions = np.where(loaded_model.predict(test_x) > 0.5, 1, 0)
 
-        # Convert X_test validation feature data to a Pandas DataFrame
-        result = pd.DataFrame(test_x, columns=features)
+        if (type(test_x) != pd.DataFrame and test_x_df is not None):
+            # Convert X_test validation feature data to a Pandas DataFrame
+            result = test_x_df
+            predictions = np.array([1 if np.mean(items) > 0.5 else 0 for items in predictions])
+        else:
+            result = test_x
 
         if end_index == -1:
             end_index = len(result)
