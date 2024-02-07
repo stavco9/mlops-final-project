@@ -30,7 +30,9 @@ if (args.model == 'lightgbm'):
     lightgbm.hyperparams_optimization_results()
     test_acc,test_f1score,test_recallscore,test_cm,test_pred,params,model = lightgbm.test()
      
-    #######  
+    #########
+    # Complete here the decision tree implementation
+    #########
 
     mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABLightGBM", test_acc=test_acc,
                              test_f1score=test_f1score, test_recallscore=test_recallscore, test_cm=test_cm, test_pred=test_pred,
@@ -42,6 +44,10 @@ if (args.model == 'convae'):
     convae = Conv_AE_Main(dataset)
     convae.train()    
     test_acc,test_recallscore = convae.test()
+
+    #########
+    # Complete here the decision tree implementation
+    #########
 
     mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABConvAE", test_acc=test_acc,
                              test_recallscore=test_recallscore,
