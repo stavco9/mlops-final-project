@@ -2,3 +2,4 @@ LightGBM
 .ipynb_checkpoints
 __pycache__
 ml-100k*
+.DS_Store
