@@ -40,7 +40,7 @@ if (args.model == 'lightgbm'):
                              log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
                              params=params, model=model, model_name="lightgbm-model",
                              train_x=lightgbm.train_x, valid_x=lightgbm.valid_x)
-    mlflow_result = mlflow_client.show_experiment_results(test_x=lightgbm.test_x, test_y=lightgbm.test_y,
+    mlflow_client.show_experiment_results(test_x=lightgbm.test_x, test_y=lightgbm.test_y,
                                         start_index=0, end_index=50)
     
 if (args.model == 'convae'):
@@ -62,10 +62,7 @@ if (args.model == 'convae'):
                              model=convae.model, model_name="convae-model",
                              train_x=convae.X_train_df, valid_x=convae.X_valid_seq)
 
-    mlflow_result = mlflow_client.show_experiment_results(test_x=convae.X_test_seq,
+    mlflow_client.show_experiment_results(test_x=convae.X_test_seq,
                                         test_x_df=convae.X_test_df,
                                         test_y=convae.Y_test,
                                         start_index=0, end_index=50)
-    
-mlflow_acc = accuracy_score(mlflow_result[["actual_class"]], mlflow_result["predicted_class"])
-print(f"Mlflow accuracy: {str(mlflow_acc)}")
