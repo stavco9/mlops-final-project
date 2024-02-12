@@ -16,8 +16,7 @@ class MLflow:
         )
 
     def run_experiment(self, experiment_name, model, model_name, train_x, valid_x, \
-                       test_acc=None, test_f1score=None, \
-                       test_recallscore=None, test_cm=None, test_pred=None, \
+                        log_metrics_feats=None, log_metrics_vals=None, \
                         params=None):
         
         if not mlflow.get_experiment_by_name(experiment_name):
@@ -34,8 +33,12 @@ class MLflow:
             if params:
                 mlflow.log_params(params)
             
-            # Log the loss metric
-            mlflow.log_metric("accuracy", test_acc)
+            if log_metrics_feats is not None and log_metrics_vals is not None:
+                for idx, feat in enumerate(log_metrics_feats.to_list()):
+                    for metric_name, metric in log_metrics_vals.items():
+                        metric_key = f"{feat}_{metric_name}"
+                        metric_value = metric[idx]
+                        mlflow.log_metric(metric_key, metric_value)
             
             # Set a tag that we can use to remind ourselves what this run was for
             mlflow.set_tag("Training Info", "Basic LR model for iris data")

@@ -31,15 +31,15 @@ if (args.model == 'lightgbm'):
     lightgbm.train()
     lightgbm.hyperparams_optimization_results()
     test_acc,test_f1score,test_recallscore,test_cm,test_pred,params,model = lightgbm.test()
-     
-    df2 = F.main_func_max(lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=1, metric='accuracy')
-    #result = pd.concat([df1, df2], ignore_index=True).sort_values(by='acc', ascending=False)
-    result = df2.sort_values(by=['feature','acc'], ascending=False)
-    result1 = result.loc[result.groupby('feature')['acc'].idxmin()]
 
-    mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABLightGBM", test_acc=test_acc,
-                             test_f1score=test_f1score, test_recallscore=test_recallscore, test_cm=test_cm, test_pred=test_pred,
-                             params=params, model=model, model_name="lightgbm-model" ,train_x=lightgbm.train_x, valid_x=lightgbm.valid_x)
+    df_fraeai_acc = F.main_func_max('LightGBM', lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=1, metric='accuracy')
+    df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
+    df_features = df_fraeai_acc.loc[:, 'features']
+
+    mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABLightGBM",
+                             log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
+                             params=params, model=model, model_name="lightgbm-model",
+                             train_x=lightgbm.train_x, valid_x=lightgbm.valid_x)
     mlflow_result = mlflow_client.show_experiment_results(test_x=lightgbm.test_x, test_y=lightgbm.test_y,
                                         start_index=0, end_index=50)
     
@@ -53,13 +53,12 @@ if (args.model == 'convae'):
     convae.Y_train = convae.Y_train[:-(convae.N_STEPS) + 1]
     convae.Y_test = convae.Y_test[:-(convae.N_STEPS) + 1]
 
-    df2 = F.main_func_max(convae.X_test_df, convae.Y_train, convae.Y_test, number_of_features=1, metric='accuracy')
-    #result = pd.concat([df1, df2], ignore_index=True).sort_values(by='acc', ascending=False)
-    result = df2.sort_values(by=['feature','acc'], ascending=False)
-    result1 = result.loc[result.groupby('feature')['acc'].idxmin()]
+    df_fraeai_acc = F.main_func_max('ConvAE', convae.X_test_df, convae.Y_train, convae.Y_test, number_of_features=1, metric='accuracy')
+    df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
+    df_features = df_fraeai_acc.loc[:, 'features']
 
-    mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABConvAE", test_acc=test_acc,
-                             test_recallscore=test_recallscore,
+    mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABConvAE",
+                             log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
                              model=convae.model, model_name="convae-model",
                              train_x=convae.X_train_df, valid_x=convae.X_valid_seq)
 
