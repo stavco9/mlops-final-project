@@ -48,7 +48,6 @@ if (args.model == 'convae'):
     convae.train()    
     test_acc,test_recallscore = convae.test()
 
-    print("Current sets")
     convae.X_test_df = convae.X_test_df.reset_index(drop=True).iloc[:-(convae.N_STEPS) + 1]
     convae.Y_train = convae.Y_train[:-(convae.N_STEPS) + 1]
     convae.Y_test = convae.Y_test[:-(convae.N_STEPS) + 1]

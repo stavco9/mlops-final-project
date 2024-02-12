@@ -2,6 +2,7 @@ import MLflow.mlflow_module as mlflow
 import numpy as np
 import pandas as pd
 from MLflow.mlflow_module.models import infer_signature
+from IPython.display import display
 
 class MLflow:
     #
@@ -76,6 +77,6 @@ class MLflow:
         # Add the model predictions to the DataFrame
         result["predicted_class"] = predictions
 
-        print(result[start_index:end_index])
+        display(result[start_index:end_index])
 
         return result
