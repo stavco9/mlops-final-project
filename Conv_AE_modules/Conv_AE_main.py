@@ -137,7 +137,7 @@ class Conv_AE_Main:
         test_accuracy = (tp_rate+tn_rate)/(tp_rate+fp_rate+fn_rate+tn_rate)
 
         self.Y_test = true_outlier_np
-        self.Y_train = predicted_outlier_np
+        self.pred_test = predicted_outlier_np
 
         print('test_fn_count:' + str(fn_rate))
         print('test_fn_rate:' + str(fn_rate/(fn_rate + tp_rate)))

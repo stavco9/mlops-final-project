@@ -49,10 +49,10 @@ if (args.model == 'convae'):
     test_acc,test_recallscore = convae.test()
 
     convae.X_test_df = convae.X_test_df.reset_index(drop=True).iloc[:-(convae.N_STEPS) + 1]
-    convae.Y_train = convae.Y_train[:-(convae.N_STEPS) + 1]
+    convae.pred_test = convae.pred_test[:-(convae.N_STEPS) + 1]
     convae.Y_test = convae.Y_test[:-(convae.N_STEPS) + 1]
 
-    df_fraeai_acc = F.main_func_max('ConvAE', convae.X_test_df, convae.Y_train, convae.Y_test, number_of_features=1, metric='accuracy')
+    df_fraeai_acc = F.main_func_max('ConvAE', convae.X_test_df, convae.pred_test, convae.Y_test, number_of_features=1, metric='accuracy')
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
 
