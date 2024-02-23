@@ -1,4 +1,4 @@
-![image](https://github.com/stavco9/mlops-final-project/assets/33497599/4a14be18-5cac-416b-8038-0b5776bfb119)# Baseline Model Report
+# Baseline Model Report
 
 _Baseline model is the the model a data scientist would train and evaluate quickly after he/she has the first (preliminary) feature set ready for the machine learning modeling. Through building the baseline model, the data scientist can have a quick assessment of the feasibility of the machine learning task._
 
