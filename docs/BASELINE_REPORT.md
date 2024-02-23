@@ -49,9 +49,11 @@ Before executing our FraeAI Decision tree described in the model report, we firs
 * Test accuracy: 0.9257
 
 * This is the true anomaly vs prediction graph
-  ![image](https://github.com/stavco9/mlops-final-project/assets/33497599/1bfe4139-b822-4e72-9bc0-f476d356b7c0)
+  
+![image](https://github.com/stavco9/mlops-final-project/assets/33497599/1bfe4139-b822-4e72-9bc0-f476d356b7c0)
 * This is the lightGMB feature importance graph
-  ![image](https://github.com/stavco9/mlops-final-project/assets/33497599/2e1e7526-8b82-465d-a3df-3264dd1716ea)
+
+![image](https://github.com/stavco9/mlops-final-project/assets/33497599/2e1e7526-8b82-465d-a3df-3264dd1716ea)
 
 
 ## Model Understanding
