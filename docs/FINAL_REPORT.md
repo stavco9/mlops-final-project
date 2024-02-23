@@ -1,4 +1,4 @@
-## Exit Report of project: Automatic discovery of under-performing data slicesin anomaly detection models
+## Exit Report of project: Automatic discovery of under-performing data slicesin anomaly detection models
 
 Customer: <Enter Customer Name\>
 
