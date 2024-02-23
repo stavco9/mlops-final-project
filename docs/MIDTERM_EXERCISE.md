@@ -17,11 +17,12 @@ Hence, the client's major business challenge is to develop high level of sensiti
 
 ## Scope
 
-To address the business problem at hand, we aim to employ data science tools for detecting anomalies in the water circulation system. Our primary focus is on minimizing undetected issues within the system.
+To address the business problem at hand, we aim to employ data science tools for detecting anomalies in the water circulation system. Our primary focus is on finding "problematic" anomaly slices within the system.
 
-To tackle this challenge, we will use two machine learning models. The first model is based on a convolutional autoencoder, while the second model is based on decision trees. Our objective is to minimize the false negative rate in our system. Failure to identify an anomaly can result in significant financial expanses for the client, whereas dispatching a technician is a comparatively inexpensive solution.
+To tackle this challenge, we will use a machine learning model based on decision trees (FraeAI). Our objective is to find the f2 score of each top-under performing slice of each feature (weighted mean of precision and recall with more weight for recall)
+. Failure to identify an anomaly can result in significant financial expanses for the client, whereas dispatching a technician is a comparatively inexpensive solution.
 
-During the model training process, we will identify slices in the data where the models exhibit suboptimal performance. To improve the perfomance in these specific areas, we will generate additional synthetic training samples with similar distribution as the problematic segments. This iterative training approach aims to improve model performance on challenging data slices.
+During the model execution process, we will identify slices in the data where the models exhibit suboptimal performance and calculate the f2 score for each one of them. The top under-performed slices and metrics will be uploaded and registered into a cloud platform
 
 Our tool is easy to use and requieres continuous data collection from the water pump, with the customer uploading this data to the server.
 Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.
@@ -50,8 +51,13 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
     * Recall rate of 65% between the predicted anomaly and the actual one
-* **Metrics measurment**  
-  Comparison of False Negative rates and recall after implementation to baselines' False Negative rates and recall over the test set.
+* **Metrics measurment**
+  * The top under-performing slice of each feature (Leaf ID)
+  * The F2 score of each feature after implementation to baselines' prediction anomaly rate versus the actual anomaly rate.
+  * The F2 improvement rate after removing the top under-performed slice
+  * The precision of each feature
+  * The recall of each feature
+  * The size of the "problematic" slice for each feature (Number of measurements)
 
 ## Plan
 * Phase 1: Dataset exploration
@@ -68,16 +74,11 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
 * Phase 4: Train our python modules based on the train slice of our source (input) dataset and validate it with our validate slice:
    * lightgbm
    * Conv_AE
-* Phase 5: Implement an algorithm to find slices of dataset which the model perform badly on. That means low recall rate.
-* Phase 6: Choose an algorithm for generating time-series data (Synthetic data) with similar distribution as the problematic slices. Possible packages are Time GAN and Deep Echo.
-* Phase 7: Use the extended data sets to train again and fine tune the models:
-   * lightgbm
-   * Conv_AE
-* Phase 8: Show our results by comparing the perfomance on the test set with and without our method. We will apply same algorithm for detecting problematic slices so get customer will be aware in case that our model has sub optimal performance over some data.
-Check if the following model aspects have been improved by the target improvement we've defined ourselves:
-     * False negative rate
-     * Recall rate
-* Phase 9: Export the trained model and create an application which wraps the model with simlpe user interface.
+* Phase 5: Implement the FraeAI algorithm to find slices of dataset which the model perform badly on and observe the desired metrics.
+* Phase 6: Upload the trained baseline model & FraeAI metrics to Databricks platform 
+* Phase 7: Show our results in the Databricks platform to show the FraeAI metrics results (F2, precision, recall), and whether the following has been improved:
+  * The f2 score improvement for each feature
+* Phase 8: Load the model from databricks and run a prediction based on the test set
 
 ## Architecture
 
