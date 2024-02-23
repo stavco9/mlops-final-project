@@ -75,7 +75,7 @@ These are the outputs of the data processing:
  
 * Architecture overall diagram:
 
-![alt text](https://drive.google.com/file/d/12e9j022S3sKrSnNpJcisHwcr1WYEF1xx/view?usp=sharing)
+![alt text](https://github.com/stavco9/mlops-final-project/blob/b40a7fd9c82e4982d1f2d78432054deebd31ef92/docs/MLflowArchitecture.png)
 
 ##	Benefits
 	
