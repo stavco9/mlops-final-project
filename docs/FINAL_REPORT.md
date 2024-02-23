@@ -1,10 +1,14 @@
-# Exit Report of Project <X> for Customer <Y>
-
-Instructions: Template for exit criteria for data science projects. This is concise document that includes an overview of the entire project, including details of each stage and learning. If a section isn't applicable (e.g. project didn't include a ML model), simply mark that section as "Not applicable". Suggested length between 5-20 pages. Code should mostly be within code repository (not in this document).
+![image](https://github.com/stavco9/mlops-final-project/assets/33497599/555ac4b6-9146-4525-b132-23029536232d)# Exit Report of project: Automatic discovery of under-performing data slicesin anomaly detection models
 
 Customer: <Enter Customer Name\>
 
-Team Members: <Enter team member' names. Please also enter relevant parties names, such as team lead, Account team, Business stakeholders, etc.\>
+Team Members:
+* Lecturer: Dr. Ishai Rosenberg
+* Students:
+  * Nitay Cohen
+  * Stav Cohen
+  * Kilièmah Ouattara
+  * Natalia Meergus
 
 ##	Overview
 
@@ -17,10 +21,35 @@ Team Members: <Enter team member' names. Please also enter relevant parties name
 <Business problem and exact use case(s), why it matters\>
 
 ##	Data Processing
-<Schema of original datasets, how data was processed, final input data schema for model\>
+The original dataset is a set of input files (with a CSV format) of time series data that taken from a water pipe measurement system
+The dataset has the following index:
+* Datetime - Timestamp of when the data was taken (YYYY-MM-DD hh:mm:ss)
+The dataset has the following features:
+* Accelerometer1RMS - The square root of the first vibration acceleration value (g units)
+* Accelerometer2RMS - The square root of the second vibration acceleration value (g units)
+* Current - The amperation of the electric motor (ampere)
+* Pressure - The pressure in the loop after the water bump (bar)
+* Temperature - The temperature of the engine body (Cº)
+* Thermocouple - The temperature of the field in the circulation loop (Cº)
+* Voltage - The voltage of the electric motor (volt)
+* Volume Flow RateRMS - The circulation flow rate of the field inside the loop (Liter / m)
+And the following outputs:
+* Anomaly - Whether the checkpoint is anomolous (0/1)
+* Changepoint - Whether the checkpoint is used for collective anomalies (0/1)
+
+Before executing our models, first we make a dataprocessing in order to make it ready for models training. The general dataprocessing is being done with the following way:
+1. Split the dataset into train / valid / test sub-datasets
+2. For each sub-dataset, split it into windows and make a smooth curve on each window
+3. Make a data standartization for each window by centering and scaling (For train window we also fit it)
+
+These are the outputs of the data processing:
+1. Train / Valid / Test sets of the original data with all the feature's values (X)
+2. Windows of each subset (X)
+3. Data standartization of each subset (X)
+4. Train / Valid / Test sets of the anomalies of the data (Y)
 
 ##	Modeling, Validation
-<Modeling techniques used, validation results, details of how validation conducted\>
+
 
 ##	Solution Architecture
 <Architecture of the solution, describe clearly whether this was actually implemented or a proposed architecture. Include diagram and relevant details for reproducing similar architecture. Include details of why this architecture was chosen versus other architectures that were considered, if relevant\>
@@ -53,7 +82,8 @@ What is the benefit (ROI, savings, productivity gains etc)  for the customer? If
 <Specific issues or setup, unique things, specific challenges that had to be addressed during the engagement and how that was accomplished\>
 
 ##	Links
-<Links to published case studies, etc.; Link to git repository where all code sits\>
+https://github.com/stavco9/mlops-final-project - Source code of the project
+https://dbc-c3108cf4-06da.cloud.databricks.com - Link for the MLFlow Databricks SaaS instance
 
 
 ##	Next Steps
