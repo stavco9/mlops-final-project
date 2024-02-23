@@ -40,8 +40,8 @@ And the following outputs:
 
 Before executing our models, first we make a dataprocessing in order to make it ready for models training. The general dataprocessing is being done with the following way:
 1. Split the dataset into train / valid / test sub-datasets
-2. For each sub-dataset, split it into windows and make a smooth curve on each window
-3. Make a data standartization for each window by centering and scaling (For train window we also fit it)
+2. For each sub-dataset, split it into windows and make a smooth curve on each window in order to reduce the residual error
+3. Make a data standartization for each window by correcting the scaling difference of each characteristic (For train window we also fit it)
 
 These are the outputs of the data processing:
 1. Train / Valid / Test sets of the original data with all the feature's values (X)
@@ -50,7 +50,26 @@ These are the outputs of the data processing:
 4. Train / Valid / Test sets of the anomalies of the data (Y)
 
 ##	Modeling, Validation
-
+Before executing our FraeAI Decision tree described in the model report, we first train one of the two following models in order to achieve a comprasion of predicted vs actual anomalies taht will be used in our main model
+* LightGBM
+  * We use LightGBM model to predict anomalies based on our features, but with the current modifications:
+    * We use our data standartization output from the data pre-processing as input
+    * We split each one of the 8 features into 3 (Total of 24 features):
+      * Min value whithin each window
+      * Mean value whithin each window
+      * Max value whithin each window
+    * We train the LightGBM model based on the new version of the dataset (24 features) where we use the train set as the train input, and a combination of the train set with the valid set as the valid input
+    * The main outputs of the train are:
+      * Trained model
+      * Train accuracy
+      * Valid accuracy
+    * Then we run a prediction on the trained LightGBM model based on the test set features, and we predict the anomalies as the follow:
+      * x < 0.5 -> 0
+      * x >= 0.5 -> 1
+    * The main outputs of the tests are:
+      * Test accuracy
+      * Predicted outputs of anomalies
+      * "True" outputs of anomalies (of the test set)
 
 ##	Solution Architecture
 <Architecture of the solution, describe clearly whether this was actually implemented or a proposed architecture. Include diagram and relevant details for reproducing similar architecture. Include details of why this architecture was chosen versus other architectures that were considered, if relevant\>
