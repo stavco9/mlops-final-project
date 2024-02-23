@@ -1,4 +1,4 @@
-![image](https://github.com/stavco9/mlops-final-project/assets/33497599/555ac4b6-9146-4525-b132-23029536232d)# Exit Report of project: Automatic discovery of under-performing data slicesin anomaly detection models
+## Exit Report of project: Automatic discovery of under-performing data slicesin anomaly detection models
 
 Customer: <Enter Customer Name\>
 
@@ -82,8 +82,8 @@ What is the benefit (ROI, savings, productivity gains etc)  for the customer? If
 <Specific issues or setup, unique things, specific challenges that had to be addressed during the engagement and how that was accomplished\>
 
 ##	Links
-https://github.com/stavco9/mlops-final-project - Source code of the project
-https://dbc-c3108cf4-06da.cloud.databricks.com - Link for the MLFlow Databricks SaaS instance
+* https://github.com/stavco9/mlops-final-project - Source code of the project
+* https://dbc-c3108cf4-06da.cloud.databricks.com - Link for the MLFlow Databricks SaaS instance
 
 
 ##	Next Steps
