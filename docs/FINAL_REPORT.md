@@ -24,20 +24,20 @@ As a first phase, he needs an automatic step to produce a systematic picture of 
 
 ##	Data Processing
 The original dataset is a set of input files (with a CSV format) of time series data that taken from a water pipe measurement system
-The dataset has the following index:
-* Datetime - Timestamp of when the data was taken (YYYY-MM-DD hh:mm:ss)
-The dataset has the following features:
-* Accelerometer1RMS - The square root of the first vibration acceleration value (g units)
-* Accelerometer2RMS - The square root of the second vibration acceleration value (g units)
-* Current - The amperation of the electric motor (ampere)
-* Pressure - The pressure in the loop after the water bump (bar)
-* Temperature - The temperature of the engine body (Cº)
-* Thermocouple - The temperature of the field in the circulation loop (Cº)
-* Voltage - The voltage of the electric motor (volt)
-* Volume Flow RateRMS - The circulation flow rate of the field inside the loop (Liter / m)
-And the following outputs:
-* Anomaly - Whether the checkpoint is anomolous (0/1)
-* Changepoint - Whether the checkpoint is used for collective anomalies (0/1)
+* The dataset has the following index:
+  * Datetime - Timestamp of when the data was taken (YYYY-MM-DD hh:mm:ss)
+* The dataset has the following features:
+  * Accelerometer1RMS - The square root of the first vibration acceleration value (g units)
+  * Accelerometer2RMS - The square root of the second vibration acceleration value (g units)
+  * Current - The amperation of the electric motor (ampere)
+  * Pressure - The pressure in the loop after the water bump (bar)
+  * Temperature - The temperature of the engine body (Cº)
+  * Thermocouple - The temperature of the field in the circulation loop (Cº)
+  * Voltage - The voltage of the electric motor (volt)
+  * Volume Flow RateRMS - The circulation flow rate of the field inside the loop (Liter / m)
+* And the following outputs:
+  * Anomaly - Whether the checkpoint is anomolous (0/1)
+  * Changepoint - Whether the checkpoint is used for collective anomalies (0/1)
 
 Before executing our models, first we make a dataprocessing in order to make it ready for models training. The general dataprocessing is being done with the following way:
 1. Split the dataset into train / valid / test sub-datasets
