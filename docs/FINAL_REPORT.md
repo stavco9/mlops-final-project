@@ -81,10 +81,19 @@ These are the outputs of the data processing:
 ##	Benefits
 	
 ###	Company Benefit (internal only. Double check if you want to share this with your customer)
-<What did our company gain from this engagement? ROI, revenue,  etc\>
+1. We won our first logo in utilities industry with permission to reference it in our Marketing campaigns and materials.
+2. Our innovative adaptation of FreaAI to anomalies detection have proved successful and have good chances to be reused in other projects at lower and more competitive development costs.
+3. The specific project is expected to be profitable if the customer will proceed to the Phase 2.
+
 
 ###	Customer Benefit
-What is the benefit (ROI, savings, productivity gains etc)  for the customer? If just POC, what is estimated ROI? If exact metrics are not available, why does it have impact for the customer?\>
+Phase 1 of the project does not have immediate ROI. Instead, customer achieved:  
+* detailed picture or current model performance and its variation
+* awareness of cases where current model performance is especially poor
+* in-house ability to regularly update the above at no additional cost    
+
+From now on, this up-to-date information will enable the customer to assess feasible performance improvements and to take informed decisions on their further investments in model and infrastructure improvements.
+
 
 ##	Learnings
 
