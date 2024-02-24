@@ -47,6 +47,7 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
     * Accuracy rate of 92% between the predicted anomaly and the actual one
     * False negative rate of 17% between the predicted anomaly and the actual one
     * Recall rate of 83% between the predicted anomaly and the actual one
+    * F2-score of 97.2%
   * Based on Conv_AE module, we currently have:
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
