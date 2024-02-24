@@ -13,7 +13,19 @@
 
 ##	Overview
 
-<Executive summary of entire solution, brief non-technical overview\>
+Randomistan H2O, a cost-conscious infrastructure company, uses a proprietary anomaly detection system to preemptively detect its infrastructure failures.  
+The performance of the anomaly detection model is critical being in direct relationship with customer expenditures.  
+The customer request was to build and deploy an automatic framework for systematic and explainable analysis and improvement of model performance.
+
+Our solution used IBM FreaAI method of automated extraction of data slices.  
+It included:
+* choice of F2 as a main performance metric instead of currently used accuracy metric
+* adaptation of FreaAI method for anomaly detection and chosen metric
+* creation of automated report presenting the method results
+* execution for the current model and presentation of 2 alternative results to the customer.
+
+The results were well accepted. The customer is positive about proceeding to the next phase model performance improvement based on resulting report.
+
 
 ##	Business Domain
 Water utilities industry
