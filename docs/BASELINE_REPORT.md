@@ -32,6 +32,8 @@ Following this, a fine-tuning step is executed on the training data to determine
 * max_depth: 24
 * num_leaves: 29
 
+Finally the model predict an anomaly state, with a threshold of 0.5 probability 
+
 ## Results (Model Performance)
 * Test Accuracy : 0.919
 * Recall : 1
@@ -39,8 +41,7 @@ Following this, a fine-tuning step is executed on the training data to determine
 * F1-score : 0.898
 * F2-score : 0.972
 
-This is the true anomaly vs prediction graph
-
+This visual shows the prediction on the test set
 ![image](https://github.com/stavco9/mlops-final-project/assets/33497599/1bfe4139-b822-4e72-9bc0-f476d356b7c0)
 
 
