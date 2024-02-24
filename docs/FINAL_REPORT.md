@@ -124,11 +124,12 @@ Utilities domain is very costs-oriented. Speak savings.
 
 
 ### Product
-<Learnings around the products and services utilized in the solution \>  
 FreaAI core algorithm is metric-agnostic, thus allowing easy adaptation to different target metrics, by only changing input and metric calculation on a slice.
 
 ###	What's unique about this project, specific challenges
-<Specific issues or setup, unique things, specific challenges that had to be addressed during the engagement and how that was accomplished\>
+* We chose to analyse the data and find some conclusions about it, rather than improving the model performance
+* The data analysis by FraeAI algorithm was not simple because we needed to customize it to use f2 score rather than accuracy
+* While using ConvAE model, we needed to make a data processing between the ConvAE and FraeAI, in order to convert the sequence output into a standard numpy vector (For anomalies)
 
 ##	Links
 * https://github.com/stavco9/mlops-final-project - Source code of the project
@@ -142,4 +143,8 @@ Phase 2 Planning on 10/3/2024 by Natalia Meergus
 Biweekly check-in status meetings starting 17/3/2024 by Nitay Cohen
 
 ## Appendix
-<Other material that seems relevant – try to keep non-appendix to <20 pages but more details can be included in appendix if needed\>
+FreaAI documentation: https://towardsdatascience.com/how-to-find-weaknesses-in-your-machine-learning-models-ae8bd18880a3
+MLFlow tutorial: https://www.restack.io/docs/mlflow-knowledge-mlflow-pipeline-tutorial
+Skab dataset: https://drive.google.com/file/d/1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM/view
+Skab with LightGBM: https://www.kaggle.com/code/yoshimanaminorisa/anomaly-detection-using-lightgbm#5.-LightGBM-model-for-anomaly-detection
+Skab with ConvAE: https://github.com/waico/SKAB/blob/master/notebooks/Conv_AE.ipynb
