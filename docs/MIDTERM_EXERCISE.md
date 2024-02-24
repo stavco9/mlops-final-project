@@ -19,13 +19,12 @@ Hence, the client's major business challenge is to develop high level of sensiti
 
 To address the business problem at hand, we aim to employ data science tools for detecting anomalies in the water circulation system. Our primary focus is on finding "problematic" anomaly slices within the system.
 
-To tackle this challenge, we will use a machine learning model based on decision trees (FreaAI). Our objective is to find the F2 score of each top-under performing slice of each feature (weighted mean of precision and recall with more weight for recall)
-. Failure to identify an anomaly can result in significant financial expanses for the client, whereas dispatching a technician is a comparatively inexpensive solution.
+To tackle this challenge, we will use `a machine learning model based on decision trees (FreaAI). Our objective is to find the F2 score of each top-under performing slice of each feature (weighted mean of precision and recall with more weight for recall).` Failure to identify an anomaly can result in significant financial expanses for the client, whereas dispatching a technician is a comparatively inexpensive solution.
 
-During the model execution process, we will identify slices in the data where the models exhibit suboptimal performance and calculate the F2 score for each one of them. The top under-performed slices and metrics will be uploaded and registered into a cloud platform
+During the model execution process, we will identify slices in the data where the models exhibit suboptimal performance `and calculate the F2 score for each one of them. The top under-performed slices and metrics will be uploaded and registered into a cloud platform.`
 
-Our tool is easy to use and requires continuous data collection from the water pump, with the customer uploading this data to the server.
-Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.
+'Our tool is easy to use and requires continuous data collection from the water infrastructure, with the customer uploading this data to the server.'
+'Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.'
 
 ## Personnel
 * Project Developers:
