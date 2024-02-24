@@ -4,6 +4,9 @@
 ## Analytic Approach
 The primary objective of the baseline LightGBM model is to predict anomalous states within a water distribution system. Utilizing sequential data derived from various features, the model identifies points of anomaly. The table below outlines these features.
 ￼
+![Pasted Graphic](https://github.com/stavco9/mlops-final-project/assets/72156432/d18e6b40-6a2c-4f9b-b982-f4b1c0d883a5)
+
+
 The target variable is binary, indicating whether the current state is anomalous or not.
 LightGBM stands as a gradient boosting framework employing tree-based learning algorithms. Engineered for distributed and efficient operation, it offers several advantages:
 * Accelerated training speed and heightened efficiency.
