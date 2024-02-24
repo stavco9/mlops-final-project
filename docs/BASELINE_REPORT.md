@@ -2,10 +2,9 @@
 
 
 ## Analytic Approach
-The primary objective of the baseline LightGBM model is to predict anomalous states within a water distribution system. Utilizing sequential data derived from various features, the model identifies points of anomaly. The table below outlines these features.
+The primary objective of the baseline LightGBM model is to predict anomalous states within a water distribution system. Utilizing sequential data derived from various features, the model identifies points of anomaly. The table below outlines these features.<br>
 ￼
 ![Pasted Graphic](https://github.com/stavco9/mlops-final-project/assets/72156432/d18e6b40-6a2c-4f9b-b982-f4b1c0d883a5)
-
 
 The target variable is binary, indicating whether the current state is anomalous or not.
 LightGBM stands as a gradient boosting framework employing tree-based learning algorithms. Engineered for distributed and efficient operation, it offers several advantages:
@@ -40,20 +39,17 @@ Following this, a fine-tuning step is executed on the training data to determine
 * F1-score : 0.898
 * F2-score : 0.972
 
-* This is the true anomaly vs prediction graph
-  
-![image](https://github.com/stavco9/mlops-final-project/assets/33497599/1bfe4139-b822-4e72-9bc0-f476d356b7c0)
-* This is the lightGMB feature importance graph
+This is the true anomaly vs prediction graph
 
-![image](https://github.com/stavco9/mlops-final-project/assets/33497599/2e1e7526-8b82-465d-a3df-3264dd1716ea)
+![image](https://github.com/stavco9/mlops-final-project/assets/33497599/1bfe4139-b822-4e72-9bc0-f476d356b7c0)
 
 
 ## Model Understanding
 
-* Variable Importance (significance)
-
-* Insight Derived from the Model
-
+The LightGBM model facilitates comprehension of prediction mechanisms owing to its tree-based methodology. Through this approach, we can discern which features effectively partition the training data, as indicated by impurity metrics. The graph provided illustrates the importance of features derived from the baseline model. Notably, it reveals that the minimum volume flow value across timestamp windows emerges as the most significant feature.<br>
+![image](https://github.com/stavco9/mlops-final-project/assets/33497599/2e1e7526-8b82-465d-a3df-3264dd1716ea)<br>
+![Anomaly -](https://github.com/stavco9/mlops-final-project/assets/72156432/5d3dd7e5-e57a-41c5-a072-cd16904dc00f)
+Also from the confusion matrix, the baseline model tends to generate false alarm significantly, impacting the precision.
 
 
 ## Conclusion and Discussions for Next Steps
