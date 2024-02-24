@@ -143,8 +143,8 @@ Phase 2 Planning on 10/3/2024 by Natalia Meergus
 Biweekly check-in status meetings starting 17/3/2024 by Nitay Cohen
 
 ## Appendix
-FreaAI documentation: https://towardsdatascience.com/how-to-find-weaknesses-in-your-machine-learning-models-ae8bd18880a3
-MLFlow tutorial: https://www.restack.io/docs/mlflow-knowledge-mlflow-pipeline-tutorial
-Skab dataset: https://drive.google.com/file/d/1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM/view
-Skab with LightGBM: https://www.kaggle.com/code/yoshimanaminorisa/anomaly-detection-using-lightgbm#5.-LightGBM-model-for-anomaly-detection
-Skab with ConvAE: https://github.com/waico/SKAB/blob/master/notebooks/Conv_AE.ipynb
+* FreaAI documentation: https://towardsdatascience.com/how-to-find-weaknesses-in-your-machine-learning-models-ae8bd18880a3
+* MLFlow tutorial: https://www.restack.io/docs/mlflow-knowledge-mlflow-pipeline-tutorial
+* Skab dataset: https://drive.google.com/file/d/1dHUevwPp6ftQCEKnRgB4KMp9oLBMSiDM/view
+* Skab with LightGBM: https://www.kaggle.com/code/yoshimanaminorisa/anomaly-detection-using-lightgbm#5.-LightGBM-model-for-anomaly-detection
+* Skab with ConvAE: https://github.com/waico/SKAB/blob/master/notebooks/Conv_AE.ipynb
