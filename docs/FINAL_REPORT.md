@@ -115,7 +115,7 @@ Involving customers' technical contact persons in metrics discussion probably co
 
 
 ### Data science / Engineering
-<Learnings related to data science/engineering, tips/tricks, etc\>
+We've got many conclusions by analysing our data that can be very useful for the customer, for both baseline model (LightGBM / ConvAE) & main analysis model (FreaAI). The conclusions come into effect with metrics that uplaoded to MLFlow platform and can be used by the customer to find the weaknesses in his pipe system
 
 
 ### Domain
