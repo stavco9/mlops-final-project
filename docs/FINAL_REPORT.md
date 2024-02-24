@@ -16,10 +16,11 @@
 <Executive summary of entire solution, brief non-technical overview\>
 
 ##	Business Domain
-<Industry, business domain of customer\>
+Water utilities industry
 
 ##	Business Problem
-<Business problem and exact use case(s), why it matters\>
+The customer looks to improve his ability to proactively detect potential failures of the water infrastructure.  
+As a first phase, he needs an automatic step to produce a systematic picture of current performance of the model.
 
 ##	Data Processing
 The original dataset is a set of input files (with a CSV format) of time series data that taken from a water pipe measurement system
