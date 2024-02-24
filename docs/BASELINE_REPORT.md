@@ -1,52 +1,41 @@
 # Baseline Model Report
 
-_Baseline model is the the model a data scientist would train and evaluate quickly after he/she has the first (preliminary) feature set ready for the machine learning modeling. Through building the baseline model, the data scientist can have a quick assessment of the feasibility of the machine learning task._
-
-When applicable, the Automated Modeling and Reporting utility developed by TDSP team of Microsoft is employed to build the baseline models quickly. The baseline model report is generated from this utility easily. 
-
-> If using the Automated Modeling and Reporting tool, most of the sections below will be generated automatically from this tool. 
 
 ## Analytic Approach
-* What is target definition
-* What are inputs (description)
-* What kind of model was built?
+The primary objective of the baseline LightGBM model is to predict anomalous states within a water distribution system. Utilizing sequential data derived from various features, the model identifies points of anomaly. The table below outlines these features.
+￼
+The target variable is binary, indicating whether the current state is anomalous or not.
+LightGBM stands as a gradient boosting framework employing tree-based learning algorithms. Engineered for distributed and efficient operation, it offers several advantages:
+* Accelerated training speed and heightened efficiency.
+* Reduced memory usage.
+* Enhanced accuracy.
+* Support for parallel, distributed, and GPU learning.
+* Capability to handle large-scale datasets.
+
 
 ## Model Description
 
-Before executing our FraeAI Decision tree described in the model report, we first train the following model in order to achieve a comprasion of predicted vs actual anomalies taht will be used in our main model. Our model is LightGBM
-* We use LightGBM model to predict anomalies based on our features (Described in the final report), but with the current modifications:
-  * We use our data standartization output from the data pre-processing as input
-  * We split each one of the 8 features into 3 (Total of 24 features):
-    * Min value whithin each window
-    * Mean value whithin each window
-    * Max value whithin each window
-* We train the LightGBM model based on the new version of the dataset (24 features) where we use the train set as the train input, and a combination of the train set with the valid set as the valid input
-* The train model hyperparameters are:
-  * learning_rate - A random value
-  * min_data_in_leaf - A random value
-  * max_depth - A random value
-  * num_leaves - A random value
-* The main outputs of the train are:
-  * Trained model
-  * Train accuracy (Calculated with sklearn library)
-  * Valid accuracy (Calculated with sklearn library)
-* Then we run a train & prediction on the LightGBM model based on the test set features, and we predict the anomalies as the follow:
-  * x < 0.5 -> 0
-  * x >= 0.5 -> 1
-* The test model hyperparameters are:
-  * learning_rate - 0.0424127
-  * min_data_in_leaf - 15
-  * max_depth - 24
-  * num_leaves - 29
-* The main outputs of the tests are:
-  * Test accuracy (Calculated with sklearn library)
-  * Predicted outputs of anomalies
-  * "True" outputs of anomalies (of the test set)
+Prior to being fed into the model, the features undergo preprocessing through an initial step. This process aims to derive sub-features from sequential data.
+Initially, a Kaiser window is applied to smooth the sequences, thereby mitigating residual errors. Subsequently, a scaler is applied to standardize all features. Finally, sub-features are extracted from them. For each feature, the mean, minimum, and maximum values are computed within windows consisting of 10 timestamps.
+
+At the conclusion of the preprocessing step, 24 features are extracted from various feature windows. These sub-features serve as the primary input for the model.
+Following this, a fine-tuning step is executed on the training data to determine the optimal model and learning parameters, which are as follows:
+
+* objective: binary 
+* metric: binary_error
+* force_row_wise: True
+* seed: 0
+* learning_rate: 0.0424127
+* min_data_in_leaf: 15
+* max_depth: 24
+* num_leaves: 29
 
 ## Results (Model Performance)
-* Train accuracy: 0.66
-* valid acc: 0.66
-* Test accuracy: 0.9257
+* Test Accuracy : 0.919
+* Recall : 1
+* Precision : 0.876
+* F1-score : 0.898
+* F2-score : 0.972
 
 * This is the true anomaly vs prediction graph
   
@@ -66,10 +55,4 @@ Before executing our FraeAI Decision tree described in the model report, we firs
 
 ## Conclusion and Discussions for Next Steps
 
-* Conclusion on Feasibility Assessment of the Machine Learning Task
-
-* Discussion on Overfitting (If Applicable)
-
-* What other Features Can Be Generated from the Current Data
-
-* What other Relevant Data Sources Are Available to Help the Modeling
+The baseline model demonstrates acceptable accuracy; however, it exhibits a lower F1 score due to a notably high false alarm rate, consequently reducing precision and overall F1 score. From a business perspective, it's imperative for a model to prioritize recall while also enhancing precision. In the next phase, our focus will be on identifying strategies to improve the F2 metric. This involves detecting specific data segments that have the potential to enhance model performance through refined training techniques.
