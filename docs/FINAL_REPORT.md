@@ -110,18 +110,21 @@ From now on, this up-to-date information will enable the customer to assess feas
 ##	Learnings
 
 ### 	Project Execution
-<Learnings around the customer engagement process\>
+The customer is the lead from our blog (post about FreaAI). That demonstrates that technical blogs is the effecient way to create initial trust by potential leads and that additional developers should be encouraged to contibute to blogs authoring.   
+Involving customers' technical contact persons in metrics discussion probably contributed to their final acceptance of the results.
+
 
 ### Data science / Engineering
 <Learnings related to data science/engineering, tips/tricks, etc\>
 
 
 ### Domain
-<Learnings around the business domain, \>
+Utilities domain is very costs-oriented. Speak savings.
 
 
 ### Product
-<Learnings around the products and services utilized in the solution \>
+<Learnings around the products and services utilized in the solution \>  
+FreaAI core algorithm is metric-agnostic, thus allowing easy adaptation to different target metrics, by only changing input and metric calculation on a slice.
 
 ###	What's unique about this project, specific challenges
 <Specific issues or setup, unique things, specific challenges that had to be addressed during the engagement and how that was accomplished\>
@@ -133,7 +136,9 @@ From now on, this up-to-date information will enable the customer to assess feas
 
 ##	Next Steps
  
-<Next steps. These should include milestones for follow-ups and who 'owns' this action. E.g. Post- Proof of Concept check-in on status on 12/1/2016 by X, monthly check-in meeting by Y, etc.\>
+Output Report handover on 3/3/2024 by Natalia Meergus  
+Phase 2 Planning on 10/3/2024 by Natalia Meergus  
+Biweekly check-in status meetings starting 17/3/2024 by Nitay Cohen
 
 ## Appendix
 <Other material that seems relevant – try to keep non-appendix to <20 pages but more details can be included in appendix if needed\>
