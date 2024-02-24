@@ -39,8 +39,8 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * **Qualitative objectives** 
   The qualitative objective is to enhance the early detection capabilities of water infrastructure issues, with a specific focus on establishing a proven and balanced ability to detect all kinds of anomalies.  
 * **Quantifiable metric**  
-  The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.
-It is difficult to estimate the value of detecting undetected anomalies in the system, becuase we don't know the damage which can happen due to a fault in the system. We assume that a valuable improvments are reduction of average False Negative Rate (and increase the recall rate) by 3%, and reduction of False Negative Rate on a data slice with poorest performance (and increase the recall rate) by 10%. 
+  The quantifiable metric is `improvement of F2`, both average and on key slices.
+It is difficult to estimate the value of detecting undetected anomalies in the system, becuase we don't know the damage which can happen due to a fault in the system. We assume that a valuable improvement `is improvement of general F2 by 1%, and improvement of F2 on a data slice with poorest performance by 5%`. 
 * **Metrics' baseline**
   * Based on LightGBM module, we currently have:
     * Accuracy rate of 92% between the predicted anomaly and the actual one
