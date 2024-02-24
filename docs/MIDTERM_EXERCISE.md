@@ -23,8 +23,8 @@ To tackle this challenge, we will use `a machine learning model based on decisio
 
 During the model execution process, we will identify slices in the data where the models exhibit suboptimal performance `and calculate the F2 score for each one of them. The top under-performed slices and metrics will be uploaded and registered into a cloud platform.`
 
-'Our tool is easy to use and requires continuous data collection from the water infrastructure, with the customer uploading this data to the server.'
-'Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.'
+`Our tool is easy to use and requires continuous data collection from the water infrastructure, with the customer uploading this data to the server.  
+Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.`
 
 ## Personnel
 * Project Developers:
