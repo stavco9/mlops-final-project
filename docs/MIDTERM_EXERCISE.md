@@ -22,9 +22,9 @@ To address the business problem at hand, we aim to employ data science tools for
 To tackle this challenge, we will use a machine learning model based on decision trees (FreaAI). Our objective is to find the F2 score of each top-under performing slice of each feature (weighted mean of precision and recall with more weight for recall)
 . Failure to identify an anomaly can result in significant financial expanses for the client, whereas dispatching a technician is a comparatively inexpensive solution.
 
-During the model execution process, we will identify slices in the data where the models exhibit suboptimal performance and calculate the f2 score for each one of them. The top under-performed slices and metrics will be uploaded and registered into a cloud platform
+During the model execution process, we will identify slices in the data where the models exhibit suboptimal performance and calculate the F2 score for each one of them. The top under-performed slices and metrics will be uploaded and registered into a cloud platform
 
-Our tool is easy to use and requieres continuous data collection from the water pump, with the customer uploading this data to the server.
+Our tool is easy to use and requires continuous data collection from the water pump, with the customer uploading this data to the server.
 Upon activation, the application seamlessly processes incoming data, and alerting the designated contact person when an anomaly in the water circulation system is detected.
 
 ## Personnel
@@ -42,7 +42,7 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * **Quantifiable metric**  
   The quantifiable metric is reduction of False Negative Rate ("Miss rate") of anomalies detection, both average and on key slices.
 It is difficult to estimate the value of detecting undetected anomalies in the system, becuase we don't know the damage which can happen due to a fault in the system. We assume that a valuable improvments are reduction of average False Negative Rate (and increase the recall rate) by 3%, and reduction of False Negative Rate on a data slice with poorest performance (and increase the recall rate) by 10%. 
-* **Metrics' basline**
+* **Metrics' baseline**
   * Based on LightGBM module, we currently have:
     * Accuracy rate of 92% between the predicted anomaly and the actual one
     * False negative rate of 17% between the predicted anomaly and the actual one
@@ -51,13 +51,13 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
     * Recall rate of 65% between the predicted anomaly and the actual one
-* **Metrics measurment**
-  * The top under-performing slice of each feature (Leaf ID)
-  * The F2 score of each feature after implementation to baselines' prediction anomaly rate versus the actual anomaly rate.
-  * The F2 improvement rate after removing the top under-performed slice
-  * The precision of each feature
-  * The recall of each feature
-  * The size of the "problematic" slice for each feature (Number of measurements)
+* **Metrics measurement**
+  * `The top under-performing slice of each feature (Leaf ID)`
+  * `The F2 score of each feature after implementation to baselines' prediction anomaly rate versus the actual anomaly rate.`
+  * `The F2 improvement rate after removing the top under-performed slice`
+  * `The precision for each feature`
+  * `The recall for each feature`
+  * `The size of the "problematic" slice for each feature (number of measurements)`
 
 ## Plan
 * Phase 1: Dataset exploration
@@ -105,12 +105,12 @@ Raw data capturing the system's state will be systematically collected through p
 
 ## Communication
 
-* Meetings :
+* Meetings:
 	* Weekly meetings to check the step by step improvement techniques implementation
  	* Final meeting to discuss the added value of the improvement 
-* Contact person :
-	* Team : Natalia Meergus
-	* Customer : Dr Ishai Rosenberg
+* Contact person:
+	* Team: Natalia Meergus
+	* Customer: Dr Ishai Rosenberg
 
 ## Annexes 
 <div style="text-align: center;">
