@@ -1,7 +1,7 @@
 # Exit Report of project:
 ## Automatic discovery of under-performing data slices in anomaly detection models
 
-## Customer: <Enter Customer Name\>
+## Customer: Randomistan H2O
 
 ## Team Members:
 * Lecturer: Dr. Ishai Rosenberg
