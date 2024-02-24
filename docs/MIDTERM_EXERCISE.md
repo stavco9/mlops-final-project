@@ -46,11 +46,12 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
     * Accuracy rate of 92% between the predicted anomaly and the actual one
     * False negative rate of 17% between the predicted anomaly and the actual one
     * Recall rate of 83% between the predicted anomaly and the actual one
-    * F2-score of 97.2%
+    * `F2-score of 97.2%`
   * Based on Conv_AE module, we currently have:
     * Accuracy rate of 83% between the predicted anomaly and the actual one
     * False negative rate of 35% between the predicted anomaly and the actual one
     * Recall rate of 65% between the predicted anomaly and the actual one
+    * `F2-score of 60%`
 * **Metrics measurement**
   * `The top under-performing slice of each feature (Leaf ID)`
   * `The F2 score of each feature after implementation to baselines' prediction anomaly rate versus the actual anomaly rate.`
