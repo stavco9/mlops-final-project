@@ -65,20 +65,20 @@ It is difficult to estimate the value of detecting undetected anomalies in the s
 * Phase 2: Preparing the work environment
    * Create a source code repository
    * Install all python modules on the local machine (Based on requirements.txt)
-   * Executing the current lightgbm notebook based on our dataset
+   * Executing the current LightGBM notebook based on our dataset
    * Executing the current Conv_AE notebook based on our dataset
 * Phase 3: Split our dataset to three slices
   * train
   * test
   * validate 
 * Phase 4: Train our python modules based on the train slice of our source (input) dataset and validate it with our validate slice:
-   * lightgbm
+   * LightGBM
    * Conv_AE
-* Phase 5: Implement the FraeAI algorithm to find slices of dataset which the model perform badly on and observe the desired metrics.
-* Phase 6: Upload the trained baseline model & FraeAI metrics to Databricks platform 
-* Phase 7: Show our results in the Databricks platform to show the FraeAI metrics results (F2, precision, recall), and whether the following has been improved:
-  * The f2 score improvement for each feature
-* Phase 8: Load the model from databricks and run a prediction based on the test set
+* `Phase 5: Implement the FreaAI algorithm to find slices of dataset which the model perform badly on and observe the desired metrics.`
+* `Phase 6: Upload the trained baseline model & FreaAI metrics to Databricks platform` 
+* `Phase 7: Show our results in the Databricks platform to show the FreaAI metrics results (F2, precision, recall), and whether the following has been improved:`
+  * `The F2 score improvement for each feature`
+* `Phase 8: Load the model from databricks and run a prediction based on the test set`
 
 ## Architecture
 
