@@ -117,6 +117,7 @@ Involving customers' technical contact persons in metrics discussion probably co
 ### Data science / Engineering
 We've got many conclusions by analysing our data that can be very useful for the customer, for both baseline model (LightGBM / ConvAE) & main analysis model (FreaAI). The conclusions come into effect with metrics that uplaoded to MLFlow platform and can be used by the customer to find the weaknesses in his pipe system
 
+![alt text](https://github.com/stavco9/mlops-final-project/blob/715f188c122576bf72792673b8a66a0ef7844703/docs/mlflow_screenshot.png)
 
 ### Domain
 Utilities domain is very costs-oriented. Speak savings.
