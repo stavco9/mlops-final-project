@@ -38,7 +38,7 @@ if (args.model == 'lightgbm'):
 
     print("\n")
     print("Showing FreaAI metrics")
-    df_fraeai_acc = F.main_func('LightGBM', lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=1, metric='accuracy')
+    df_fraeai_acc = F.main_func('LightGBM', lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=2, metric='accuracy')
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
 
@@ -62,7 +62,7 @@ if (args.model == 'convae'):
 
     print("\n")
     print("Showing FreaAI metrics")
-    df_fraeai_acc = F.main_func('ConvAE', convae.X_test_df, convae.pred_test, convae.Y_test, number_of_features=1, metric='accuracy')
+    df_fraeai_acc = F.main_func('ConvAE', convae.X_test_df, convae.pred_test, convae.Y_test, number_of_features=2, metric='accuracy')
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
 
