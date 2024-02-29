@@ -16,6 +16,8 @@ parser.add_argument('--model',
 args = parser.parse_args(sys.argv[1:])
 
 dataset = Dataset('./SKAB')
+print("Displaying dataset after pre-processing")
+print('\n')
 dataset.display_data()
 dataset.split_data()
 dataset.display_X()
@@ -27,12 +29,16 @@ dataset.standard_data()
 mlflow_client = MLflow('https://dbc-c3108cf4-06da.cloud.databricks.com/')
 
 if (args.model == 'lightgbm'):
+    print("Starting LightGBM model")
+    print("\n")
     lightgbm = LightGBM(dataset)
     lightgbm.train()
     lightgbm.hyperparams_optimization_results()
     test_acc,test_f1score,test_recallscore,test_cm,test_pred,params,model = lightgbm.test()
 
-    df_fraeai_acc = F.main_func_max('LightGBM', lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=1, metric='accuracy')
+    print("\n")
+    print("Showing FreaAI metrics")
+    df_fraeai_acc = F.main_func('LightGBM', lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=1, metric='accuracy')
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
 
@@ -44,6 +50,8 @@ if (args.model == 'lightgbm'):
                                         start_index=0, end_index=50)
     
 if (args.model == 'convae'):
+    print("Starting ConvAE model")
+    print("\n")
     convae = Conv_AE_Main(dataset)
     convae.train()    
     test_acc,test_recallscore = convae.test()
@@ -52,7 +60,9 @@ if (args.model == 'convae'):
     convae.pred_test = convae.pred_test[:-(convae.N_STEPS) + 1]
     convae.Y_test = convae.Y_test[:-(convae.N_STEPS) + 1]
 
-    df_fraeai_acc = F.main_func_max('ConvAE', convae.X_test_df, convae.pred_test, convae.Y_test, number_of_features=1, metric='accuracy')
+    print("\n")
+    print("Showing FreaAI metrics")
+    df_fraeai_acc = F.main_func('ConvAE', convae.X_test_df, convae.pred_test, convae.Y_test, number_of_features=1, metric='accuracy')
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
 

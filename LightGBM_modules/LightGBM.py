@@ -39,7 +39,7 @@ class LightGBM:
           'Ther_mean','Ther_min','Ther_max', \
           'Vol_mean','Vol_min','Vol_max', \
           'Flow_mean','Flow_min','Flow_max']
-
+        
         self.init_dataset(dataset)
 
         # fix random seed
@@ -152,6 +152,8 @@ class LightGBM:
                     }
 
             train_acc,valid_acc=self.lgb_train_predict(params=lgb_params,test_flag=False)
+            print("\n")
+            print("LightGBM training metrics: ")
             print('optimization'+str(len(self.results_val_acc)+1))
             print("train acc:" + str(train_acc) + "valid acc:" + str(valid_acc) + " | lr:" + str(lr) + ", min_data_in_leaf:" + str(min_data_in_leaf) + \
                 ",max_depth:" + str(max_depth) + ",num_leaves:" + str(num_leaves))
@@ -187,12 +189,12 @@ class LightGBM:
 
         test_acc,test_f1score,test_recallscore,test_cm,test_pred,model_lgb=self.lgb_train_predict(params=lgb_params,test_flag=True)
 
+        print("\n")
+        print("LightGBM testing metrics: ")
         print('test_acc:' + str(test_acc))
         print('test_f1score:' + str(test_f1score))
         print('test_recallscore:' + str(test_recallscore))
         print('test_fn_rate:' + str(1 - test_recallscore))
-        print('test_confusionMatrix')
-        display(test_cm)
 
         plt.figure(figsize=(10,5))
         plt.plot(range(len(self.test_y)),self.test_y,linestyle='none', marker='X', color='blue', markersize=5, label='Anomaly')

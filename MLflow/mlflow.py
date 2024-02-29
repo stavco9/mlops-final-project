@@ -24,7 +24,6 @@ class MLflow:
             mlflow.create_experiment(experiment_name)
         current_experiment=dict(mlflow.get_experiment_by_name(experiment_name))
         experiment_id=current_experiment['experiment_id']
-        print(f"Experiment id is {experiment_id}")
 
         # Start an MLflow run
         run = self.mlflow_client.create_run(experiment_id)
@@ -46,6 +45,7 @@ class MLflow:
             
             signature = infer_signature(train_x, model.predict(valid_x))
 
+            print('\n')
             # Log the model
             self.model_info = mlflow.sklearn.log_model(
                 sk_model=model,
@@ -55,8 +55,13 @@ class MLflow:
                 registered_model_name=model_name,
                 await_registration_for=60
             )
+
+        print('\n')
+        print("Experiment results are available in the following link: ")
+        print(f"{mlflow.get_tracking_uri().rstrip('/')}/ml/experiments/{experiment_id}/runs/{run.info.run_id}")
             
     def show_experiment_results(self, test_x, test_y, test_x_df=None, start_index=0, end_index=-1):
+        print('\n')
         loaded_model = mlflow.pyfunc.load_model(self.model_info.model_uri)
 
         predictions = np.where(loaded_model.predict(test_x) > 0.5, 1, 0)
@@ -76,7 +81,9 @@ class MLflow:
 
         # Add the model predictions to the DataFrame
         result["predicted_class"] = predictions
-
+        
+        print('\n')
+        print("Result comprasion between predicted anomaly of the download model from MLFlow vs the actual ones")
         display(result[start_index:end_index])
 
         return result

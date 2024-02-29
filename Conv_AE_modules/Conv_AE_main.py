@@ -13,7 +13,6 @@ class Conv_AE_Main:
         self.features.remove('changepoint')
         self.N_STEPS = 60
         self.Q = 0.999 # quantile for upper control limit (UCL) selection
-        print(self.features)
 
     @staticmethod
     # Generated training sequences for use in the model.
@@ -139,6 +138,8 @@ class Conv_AE_Main:
         self.Y_test = true_outlier_np
         self.pred_test = predicted_outlier_np
 
+        print("\n")
+        print("ConvAE testing metrics: ")
         print('test_fn_count:' + str(fn_rate))
         print('test_fn_rate:' + str(fn_rate/(fn_rate + tp_rate)))
         print('test_recall_rate:' + str(test_recallscore))
