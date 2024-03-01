@@ -1,4 +1,4 @@
-# Project Charter
+![image](https://github.com/stavco9/mlops-final-project/assets/99500417/8a2ae6ef-6178-4a06-96fe-856e2bbba0de)# Project Charter
 
 ## Business background
 
@@ -34,6 +34,9 @@ Upon activation, the application seamlessly processes incoming data, and alertin
 * Project supervisor:
 
 	Dr Ishai Rosenberg
+* Client:  
+	Data administrator: Mrs. Agam Flowman  
+	Business contact:   Mrs. Marina Drippler
 
 ## Metrics
 * **Qualitative objectives** 
