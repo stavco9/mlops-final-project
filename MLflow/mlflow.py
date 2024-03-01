@@ -1,8 +1,14 @@
-import MLflow.mlflow_module as mlflow
+import platform
 import numpy as np
 import pandas as pd
-from MLflow.mlflow_module.models import infer_signature
 from IPython.display import display
+
+if platform.system() != 'Windows':
+    import MLflow.mlflow_mac as mlflow
+    from MLflow.mlflow_mac.models import infer_signature
+else:
+    import MLflow.mlflow_windows as mlflow
+    from MLflow.mlflow_windows.models import infer_signature
 
 class MLflow:
     #
@@ -27,7 +33,7 @@ class MLflow:
 
         # Start an MLflow run
         run = self.mlflow_client.create_run(experiment_id)
-        print(run.info.artifact_uri)
+        #print(run.info.artifact_uri)
         with mlflow.start_run(run_id=run.info.run_id):
             # Log the hyperparameters
             if params:
@@ -52,8 +58,7 @@ class MLflow:
                 artifact_path=f"{run.info.artifact_uri}/skab_model",
                 signature=signature,
                 input_example=train_x,
-                registered_model_name=model_name,
-                await_registration_for=60
+                registered_model_name=model_name
             )
 
         print('\n')

@@ -12,6 +12,10 @@ parser.add_argument('--model',
                     choices=['lightgbm', 'convae'],
                     help='Please select your desired training model',
                     required=True)
+parser.add_argument('--run-mlflow',
+                    action='store_true',
+                    help='Run also MLFlow part',
+                    required=False)
 
 args = parser.parse_args(sys.argv[1:])
 
@@ -41,13 +45,14 @@ if (args.model == 'lightgbm'):
     df_fraeai_acc = F.main_func('LightGBM', lightgbm.test_x, test_pred, lightgbm.test_y, number_of_features=2, metric='accuracy')
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
-
-    mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABLightGBM",
-                             log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
-                             params=params, model=model, model_name="lightgbm-model",
-                             train_x=lightgbm.train_x, valid_x=lightgbm.valid_x)
-    mlflow_client.show_experiment_results(test_x=lightgbm.test_x, test_y=lightgbm.test_y,
-                                        start_index=0, end_index=50)
+    
+    if (args.run_mlflow):
+        mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABLightGBM",
+                                log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
+                                params=params, model=model, model_name="lightgbm-model",
+                                train_x=lightgbm.train_x, valid_x=lightgbm.valid_x)
+        mlflow_client.show_experiment_results(test_x=lightgbm.test_x, test_y=lightgbm.test_y,
+                                            start_index=0, end_index=50)
     
 if (args.model == 'convae'):
     print("Starting ConvAE model")
@@ -66,12 +71,13 @@ if (args.model == 'convae'):
     df_fraeai_acc_to_mlflow = df_fraeai_acc.loc[:, ['f2','f2 imp','size','min val1','max val1','min val2','max val2']].reset_index()
     df_features = df_fraeai_acc.loc[:, 'features']
 
-    mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABConvAE",
-                             log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
-                             model=convae.model, model_name="convae-model",
-                             train_x=convae.X_train_df, valid_x=convae.X_valid_seq)
+    if (args.run_mlflow):
+        mlflow_client.run_experiment(experiment_name="/Users/stavco9@gmail.com/SKABConvAE",
+                                log_metrics_feats=df_features, log_metrics_vals=df_fraeai_acc_to_mlflow,
+                                model=convae.model, model_name="convae-model",
+                                train_x=convae.X_train_df, valid_x=convae.X_valid_seq)
 
-    mlflow_client.show_experiment_results(test_x=convae.X_test_seq,
-                                        test_x_df=convae.X_test_df,
-                                        test_y=convae.Y_test,
-                                        start_index=0, end_index=50)
+        mlflow_client.show_experiment_results(test_x=convae.X_test_seq,
+                                            test_x_df=convae.X_test_df,
+                                            test_y=convae.Y_test,
+                                            start_index=0, end_index=50)
